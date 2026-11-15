@@ -1,3 +1,15 @@
+import type { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "WorkAtlas — Enterprise UX Case Study | Shilpi Mishra",
+  description: "Explore WorkAtlas, an independent enterprise UX prototype for shared task visibility, blockers, ownership and accountable team workflows.",
+  alternates: { canonical: "/work/workatlas" },
+  openGraph: {
+    title: "WorkAtlas — Enterprise UX Case Study",
+    description: "An independent product exploration of connected work, task ownership, blockers and accountable workflows.",
+    url: "/work/workatlas",
+    type: "article",
+  },
+};
 import WorkAtlasImage from "../../../components/workatlas-image";
 import Link from "next/link";
 const chapters=[{n:"01",title:"Overview",text:"WorkAtlas is an independent enterprise UX exploration of shared task visibility, accountability and intervention."},{n:"02",title:"Problem framing",text:"A task can be visible without being actionable. The concept explores visibility, ownership, intervention and accountability as connected design concerns."},{n:"03",title:"System architecture",text:"A shared task collection feeds My Day, Work Board, Projects and Activity. Contributor and Team Lead are simulated roles, not production authorization."},{n:"04",title:"Primary workflow",text:"A contributor reports a blocker; a lead reviews context, intervenes or reassigns; shared views and Activity reflect the tested changes."},{n:"05",title:"Defect resolution",text:"A former assignee initially could change task status after reassignment. The prototype was corrected and the tested unauthorized save was rejected."},{n:"06",title:"Evidence and reflection",text:"Sprint 02: three manual checks passed. Sprint 03: five passed. Sprint 04: four initially passed and one initially failed; the defect was corrected in tested scenarios. These are not usability or business metrics."}];
