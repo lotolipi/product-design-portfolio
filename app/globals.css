@@ -310,3 +310,7 @@ html[data-loto-theme="dark"] .co-site .co-feature-image{background:#BBA9E4}
 
 /* Dark mode contrast fix: lime ticker always uses dark lettering */
 html[data-loto-theme="dark"] .co-site .co-ticker,html[data-loto-theme="dark"] .co-site .co-ticker span{color:#141416!important}
+
+/* Refine illustration: ivory strokes in bright mode, graphite in dark mode */
+.co-site .co-approach-art .co-refine-square{stroke:#F8F5EB}
+html[data-loto-theme="dark"] .co-site .co-approach-art .co-refine-square{stroke:#141416}
