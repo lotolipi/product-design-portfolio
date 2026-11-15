@@ -364,3 +364,42 @@ html[data-loto-theme="dark"] .co-site .co-about-expanded .co-tags span{border-co
 .lottolov-page .lottolov-end{border-radius:30px 30px 0 0}
 .lottolov-page a:focus-visible{outline:3px solid #6236B5;outline-offset:3px}
 @media(max-width:767px){.lottolov-page{--lottolov-radius:18px}.lottolov-page .lottolov-hero{border-radius:0 0 24px 24px}.lottolov-page .lottolov-end{border-radius:24px 24px 0 0}.lottolov-page .lottolov-nav nav a{padding:8px 10px}}
+
+
+/* Lottolov mobile polish v2: eliminate hard-edged outlines across every card */
+.lottolov-page .lottolov-collection-index a,
+.lottolov-page .co-alphabet-index,
+.lottolov-page .co-cat-collection,
+.lottolov-page .shop-destinations>div{
+ border:1px solid rgba(48,20,72,.18)!important;
+ border-radius:24px!important;
+ overflow:hidden;
+ box-shadow:0 10px 30px rgba(48,20,72,.065);
+}
+.lottolov-page .verified-artwork,
+.lottolov-page .verified-artwork img{
+ border-radius:18px!important;
+ overflow:hidden;
+}
+.lottolov-page .verified-artwork{border:1px solid rgba(48,20,72,.18)!important}
+.lottolov-page .co-letter-list a{
+ border:1px solid rgba(48,20,72,.3)!important;
+ border-radius:12px!important;
+}
+.lottolov-page .co-cat-typography,
+.lottolov-page .co-cat-details{border-radius:20px!important}
+.lottolov-page .lottolov-catalogue-section{border-top-color:rgba(48,20,72,.2)!important}
+.lottolov-page .lottolov-collection-index a,
+.lottolov-page .verified-product,
+.lottolov-page .co-letter-list a,
+.lottolov-page .shop-destinations>div{transition:border-color .2s ease,box-shadow .2s ease,transform .2s ease}
+.lottolov-page .lottolov-collection-index a:hover,
+.lottolov-page .shop-destinations>div:hover{box-shadow:0 14px 38px rgba(48,20,72,.11)}
+@media(max-width:767px){
+ .lottolov-page .lottolov-collection-index a,
+ .lottolov-page .co-alphabet-index,
+ .lottolov-page .co-cat-collection,
+ .lottolov-page .shop-destinations>div{border-radius:20px!important}
+ .lottolov-page .verified-artwork,.lottolov-page .verified-artwork img{border-radius:14px!important}
+ .lottolov-page .co-letter-list a{border-radius:9px!important}
+}
