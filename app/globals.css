@@ -330,3 +330,14 @@ html:not([data-loto-theme="dark"]) .co-site .co-approach{background:#F0EAF4;bord
 html:not([data-loto-theme="dark"]) .co-site .co-about{background:#F8F5EB;border-top:1px solid #E1D9D0}
 html:not([data-loto-theme="dark"]) .co-site .co-approach .co-principle{background:transparent}
 @media(max-width:700px){.co-site .co-feature,html[data-loto-theme="dark"] .co-site .co-feature{border-radius:16px}.co-site .co-feature-top,html[data-loto-theme="dark"] .co-site .co-feature-top{border-radius:15px 15px 0 0}.co-site .co-feature-footer,html[data-loto-theme="dark"] .co-site .co-feature-footer{border-radius:0 0 15px 15px}}
+
+
+/* Dark theme contrast correction: artwork strokes and information hierarchy */
+html[data-loto-theme="dark"] .co-site .co-approach-art line,
+html[data-loto-theme="dark"] .co-site .co-approach-art path[stroke="#301448"],
+html[data-loto-theme="dark"] .co-site .co-approach-art circle[stroke="#301448"]{stroke:#D8C8F5!important}
+html[data-loto-theme="dark"] .co-site .co-approach-art [fill="#301448"]{fill:#D8C8F5}
+html[data-loto-theme="dark"] .co-site .co-about-facts>div{border-top-color:#777080!important}
+html[data-loto-theme="dark"] .co-site .co-about-facts span{color:#C7B5FF!important}
+html[data-loto-theme="dark"] .co-site .co-about-facts small{color:#C1BCCB!important}
+html[data-loto-theme="dark"] .co-site .co-about-expanded .co-tags span{border-color:#9C92A9!important;background:#343039!important;color:#F8F5EB!important}
