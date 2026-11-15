@@ -1,5 +1,16 @@
+import type { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Lottolov — Original Illustrations & Printable Art",
+  description: "Discover Lottolov, Shilpi Mishra's independent creative label featuring Botanica alphabet illustrations, Cat Trio prints and playful original artwork.",
+  alternates: { canonical: "/lottolov" },
+  openGraph: {
+    title: "Lottolov — Original Illustrations & Printable Art",
+    description: "Botanica alphabet illustrations, Cat Trio prints and playful original artwork.",
+    url: "/lottolov",
+    type: "website",
+  },
+};
 import Link from "next/link";
-export const metadata={title:"Lottolov — Original art & playful objects",description:"Explore Lottolov's Botanica alphabet and Cat Trio collections of original printable wall art."};
 const letters="ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 const featured=["Z","Y","X","W","L","P"];
 const botanicalNames:Record<string,string>={Z:"Zygopetalum Wendlandi",Y:"Yarrow",X:"Xanthoceras Sorbifolium",W:"Wisteria",L:"Lavender",P:"Periwinkle"};
