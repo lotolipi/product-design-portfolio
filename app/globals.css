@@ -341,3 +341,26 @@ html[data-loto-theme="dark"] .co-site .co-about-facts>div{border-top-color:#7770
 html[data-loto-theme="dark"] .co-site .co-about-facts span{color:#C7B5FF!important}
 html[data-loto-theme="dark"] .co-site .co-about-facts small{color:#C1BCCB!important}
 html[data-loto-theme="dark"] .co-site .co-about-expanded .co-tags span{border-color:#9C92A9!important;background:#343039!important;color:#F8F5EB!important}
+
+
+/* Lottolov: soft-edged editorial system, scoped to the creative label */
+.lottolov-page{--lottolov-radius:22px;--lottolov-radius-sm:14px}
+.lottolov-page .lottolov-nav{border-radius:0 0 20px 20px}
+.lottolov-page .lottolov-nav nav a{border-radius:999px;padding:10px 16px;transition:background .2s ease,color .2s ease}
+.lottolov-page .lottolov-nav nav a:hover{background:#EEE4FA}
+.lottolov-page .lottolov-hero{border-radius:0 0 32px 32px;overflow:hidden}
+.lottolov-page .lottolov-hero>a,.lottolov-page .lottolov-end a,.lottolov-page .co-collection-link{border:1px solid currentColor;border-radius:999px;padding:13px 22px;text-decoration:none}
+.lottolov-page .lottolov-collection-index a{border-radius:var(--lottolov-radius);overflow:hidden;box-shadow:0 12px 32px rgba(43,20,71,.055)}
+.lottolov-page .verified-product{border-radius:var(--lottolov-radius);overflow:hidden}
+.lottolov-page .verified-artwork{border-radius:18px;overflow:hidden}
+.lottolov-page .verified-artwork img{border-radius:18px;display:block}
+.lottolov-page .co-alphabet-index{border-radius:var(--lottolov-radius);overflow:hidden}
+.lottolov-page .co-letter-list a{border-radius:12px}
+.lottolov-page .co-cat-collection{border-radius:var(--lottolov-radius);overflow:hidden}
+.lottolov-page .co-cat-typography{border-radius:18px}
+.lottolov-page .co-cat-details{border-radius:18px}
+.lottolov-page .shop-destinations>div{border-radius:var(--lottolov-radius);overflow:hidden}
+.lottolov-page .shop-destinations a{border-radius:999px}
+.lottolov-page .lottolov-end{border-radius:30px 30px 0 0}
+.lottolov-page a:focus-visible{outline:3px solid #6236B5;outline-offset:3px}
+@media(max-width:767px){.lottolov-page{--lottolov-radius:18px}.lottolov-page .lottolov-hero{border-radius:0 0 24px 24px}.lottolov-page .lottolov-end{border-radius:24px 24px 0 0}.lottolov-page .lottolov-nav nav a{padding:8px 10px}}
