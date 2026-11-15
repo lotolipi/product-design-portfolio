@@ -307,3 +307,6 @@ html[data-loto-theme="dark"] .co-site .co-evidence,html[data-loto-theme="dark"] 
 html[data-loto-theme="dark"] .loto-theme-toggle{background:#28282D;color:#F6F3ED;border-color:#767680}
 html[data-loto-theme="dark"] .co-site .co-case-chapters,html[data-loto-theme="dark"] .co-site .co-case-hero{background:#1B1B1F;color:#F6F3ED}
 html[data-loto-theme="dark"] .co-site .co-feature-image{background:#BBA9E4}
+
+/* Dark mode contrast fix: lime ticker always uses dark lettering */
+html[data-loto-theme="dark"] .co-site .co-ticker,html[data-loto-theme="dark"] .co-site .co-ticker span{color:#141416!important}
