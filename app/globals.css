@@ -134,3 +134,12 @@
 .co-site .co-mail-form>small{font-size:12px}
 @media(max-width:700px){.co-site .co-about-expanded .co-resume-cta{margin-top:22px;padding:14px 21px}.co-site .co-mail-form{border-radius:20px;box-shadow:7px 7px 0 #D9C8FF}.co-site .co-mail-submit{min-height:54px}.co-site .co-about-expanded .co-tags span{padding:9px 14px}}
 @media(prefers-reduced-motion:reduce){.co-site .co-about-expanded .co-resume-cta,.co-site .co-about-expanded .co-tags span,.co-site .co-mail-submit{transition:none}.co-site .co-about-expanded .co-resume-cta:hover,.co-site .co-mail-submit:hover{transform:none}}
+
+
+/* Editorial hero illustration: designed SVG, not a product screenshot */
+.co-site .co-hero-artwork{position:relative;width:100%;max-width:650px;margin:0 auto;min-width:0;align-self:center;isolation:isolate}
+.co-site .co-hero-artwork>svg{display:block;width:100%;height:auto;overflow:visible;filter:none}
+.co-site .co-hero-art-caption{position:relative;margin:-9px 24px 0;display:flex;align-items:center;justify-content:space-between;gap:12px;border-top:2px solid #092c47;padding-top:13px;color:#092c47;font-size:clamp(10px,1vw,13px);font-weight:900;letter-spacing:.13em}
+.co-site .co-hero-art-caption b{color:#E5008A;font-size:20px}
+@media(max-width:900px){.co-site .co-hero-artwork{width:min(100%,560px);margin:8px auto 25px}}
+@media(max-width:600px){.co-site .co-hero-artwork{width:100%;max-width:460px;margin:8px auto 22px}.co-site .co-hero-art-caption{margin:-6px 12px 0;padding-top:10px;letter-spacing:.07em}}
