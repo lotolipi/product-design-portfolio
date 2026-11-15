@@ -95,3 +95,19 @@
 .co-feature-arrow svg{width:clamp(25px,3vw,34px);height:auto}
 .co-site a:focus-visible,.lottolov-page a:focus-visible,.co-case-page a:focus-visible,.resume-shell a:focus-visible,.co-site button:focus-visible{outline:3px solid #e5008a;outline-offset:4px}
 @media(prefers-reduced-motion:reduce){.co-site svg,.lottolov-page svg,.co-case-page svg,.resume-shell svg{transition:none!important;animation:none!important}}
+
+
+/* Lotolipi editorial approach — deliberately larger than interface icons */
+.co-site .co-nav .co-nav-contact{background:#173CDE;color:#fff;border:2px solid #173CDE;border-radius:999px;padding:12px 23px;min-height:45px;display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:800;white-space:nowrap;transition:background .2s ease,transform .2s ease}
+.co-site .co-nav .co-nav-contact:hover{background:#092C47;border-color:#092C47;transform:translateY(-2px)}
+.co-site .co-nav .co-nav-contact:focus-visible{outline:3px solid #E5008A;outline-offset:3px}
+.co-site .co-approach{background:#F8F5EB}
+.co-site .co-principles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,50px)}
+.co-site .co-principle,.co-site .co-principle:nth-child(2),.co-site .co-principle:nth-child(3){background:transparent;border:0;padding:0;min-height:0;display:flex;flex-direction:column;align-items:flex-start}
+.co-site .co-principle-top{width:100%;color:#173CDE;font-size:11px;letter-spacing:.15em}
+.co-site .co-approach-art{width:100%;height:auto;max-width:360px;display:block;margin:15px 0 14px;overflow:visible}
+.co-site .co-principle h3{margin:0 0 10px;font-size:clamp(30px,3.3vw,49px);line-height:1.02;letter-spacing:-.065em}
+.co-site .co-principle p{font-size:clamp(14px,1.25vw,17px);line-height:1.5;max-width:340px}
+@media(max-width:750px){.co-site .co-principles{grid-template-columns:1fr;gap:44px}.co-site .co-principle{max-width:480px}.co-site .co-approach-art{max-width:320px;margin:12px auto 8px}.co-site .co-nav .co-nav-contact{padding:10px 15px;min-height:40px;font-size:12px}.co-site .co-principle h3{font-size:38px}}
+@media(max-width:400px){.co-site .co-nav .co-nav-contact{padding:8px 12px;font-size:11px;gap:5px}}
+@media(prefers-reduced-motion:reduce){.co-site .co-nav .co-nav-contact{transition:none}.co-site .co-nav .co-nav-contact:hover{transform:none}}
