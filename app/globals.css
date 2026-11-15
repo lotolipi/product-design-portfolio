@@ -314,3 +314,19 @@ html[data-loto-theme="dark"] .co-site .co-ticker,html[data-loto-theme="dark"] .c
 /* Refine illustration: ivory strokes in bright mode, graphite in dark mode */
 .co-site .co-approach-art .co-refine-square{stroke:#F8F5EB}
 html[data-loto-theme="dark"] .co-site .co-approach-art .co-refine-square{stroke:#141416}
+
+
+/* Consistent case-study card geometry in both themes */
+.co-site .co-feature{border-radius:20px;overflow:hidden;isolation:isolate}
+.co-site .co-feature-top{border-radius:17px 17px 0 0}
+.co-site .co-feature-image{overflow:hidden}
+.co-site .co-feature-footer{border-radius:0 0 17px 17px}
+html[data-loto-theme="dark"] .co-site .co-feature{border-radius:20px;overflow:hidden}
+html[data-loto-theme="dark"] .co-site .co-feature-top{border-radius:19px 19px 0 0}
+html[data-loto-theme="dark"] .co-site .co-feature-footer{border-radius:0 0 19px 19px}
+/* Bright theme: subtle alternating surfaces and section dividers */
+html:not([data-loto-theme="dark"]) .co-site .co-work{background:#F8F5EB;border-bottom:1px solid #E1D9D0}
+html:not([data-loto-theme="dark"]) .co-site .co-approach{background:#F0EAF4;border-top:1px solid #DED5E7;border-bottom:1px solid #DED5E7}
+html:not([data-loto-theme="dark"]) .co-site .co-about{background:#F8F5EB;border-top:1px solid #E1D9D0}
+html:not([data-loto-theme="dark"]) .co-site .co-approach .co-principle{background:transparent}
+@media(max-width:700px){.co-site .co-feature,html[data-loto-theme="dark"] .co-site .co-feature{border-radius:16px}.co-site .co-feature-top,html[data-loto-theme="dark"] .co-site .co-feature-top{border-radius:15px 15px 0 0}.co-site .co-feature-footer,html[data-loto-theme="dark"] .co-site .co-feature-footer{border-radius:0 0 15px 15px}}
