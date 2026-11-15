@@ -178,3 +178,23 @@
  .co-site .co-nav nav a:focus-visible{outline:3px solid #E5008A;outline-offset:2px}
 }
 @media(max-width:365px){.co-site .co-nav{padding:0 9px;gap:4px}.co-site .brand{font-size:16px}.co-site .co-nav nav{gap:1px}.co-site .co-nav .co-nav-item,.co-site .co-nav .co-nav-contact{width:31px;height:35px}.co-site .co-nav .co-nav-mobile-icon{width:17px;height:17px}}
+
+
+/* Text-only interface language: uppercase labels, no icon-only navigation */
+.co-site .co-nav nav a,.co-site .co-button,.co-site .co-text-link,.co-site .co-about-expanded .co-resume-cta,.co-site .co-mail-submit,.lottolov-page nav a,.co-case-page a{letter-spacing:.055em}
+.co-site .co-nav .co-nav-text{display:inline!important;font-size:inherit;white-space:nowrap;text-transform:uppercase;font-weight:800}
+.co-site .co-nav .co-nav-mobile-icon{display:none!important}
+.co-site .co-nav .co-nav-item,.co-site .co-nav .co-nav-contact{width:auto;height:auto;min-width:0;min-height:40px;padding:10px 12px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;text-decoration:none}
+.co-site .co-nav .co-nav-contact{padding:11px 17px}
+.co-site .co-button,.co-site .co-text-link,.co-site .co-about-expanded .co-resume-cta,.co-site .co-mail-submit{text-transform:uppercase}
+.co-site .co-feature-arrow{display:none}
+@media(max-width:760px){
+.co-site .co-nav{height:auto;min-height:0;padding:13px 14px 10px;flex-wrap:wrap;gap:12px;align-items:center}
+.co-site .co-nav .brand{flex:1 1 100%;font-size:23px}
+.co-site .co-nav nav{width:100%;flex:1 1 100%;display:flex;align-items:center;justify-content:space-between;gap:3px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:3px}
+.co-site .co-nav nav::-webkit-scrollbar{display:none}
+.co-site .co-nav .co-nav-item,.co-site .co-nav .co-nav-contact{width:auto;height:auto;min-height:35px;padding:8px 7px;border:0;border-radius:999px;background:transparent;box-shadow:none!important;flex-shrink:0}
+.co-site .co-nav .co-nav-contact{background:#173cde;color:#fff;padding:9px 12px}
+.co-site .co-nav .co-nav-text{display:inline!important;font-size:clamp(9px,2.45vw,12px);letter-spacing:.035em}
+}
+@media(max-width:365px){.co-site .co-nav nav{gap:0}.co-site .co-nav .co-nav-item{padding:7px 5px}.co-site .co-nav .co-nav-contact{padding:8px 9px}}
