@@ -403,3 +403,74 @@ html[data-loto-theme="dark"] .co-site .co-about-expanded .co-tags span{border-co
  .lottolov-page .verified-artwork,.lottolov-page .verified-artwork img{border-radius:14px!important}
  .lottolov-page .co-letter-list a{border-radius:9px!important}
 }
+
+
+/* Lottolov unified visual system — matches portfolio bright / graphite dark */
+.lottolov-page{
+ --lv-bg:#F8F5EB;--lv-surface:#F0EAF4;--lv-card:#E7DDFF;--lv-card-alt:#F5A87B;
+ --lv-ink:#301448;--lv-muted:#5D5267;--lv-line:#CBBFD1;--lv-accent:#173CDE;
+ --lv-elev:0 12px 32px rgba(48,20,72,.075);
+ background:var(--lv-bg)!important;color:var(--lv-ink)!important;min-height:100vh;
+}
+.lottolov-page .lottolov-nav{background:var(--lv-bg)!important;color:var(--lv-ink)!important;border:0!important;border-bottom:1px solid var(--lv-line)!important;border-radius:0 0 24px 24px!important}
+.lottolov-page .lottolov-nav a{color:var(--lv-ink)!important}
+.lottolov-page .lottolov-nav .brand span{color:#E5008A!important}
+.lottolov-page .lottolov-nav nav a{border:1px solid transparent!important;border-radius:999px!important}
+.lottolov-page .lottolov-nav nav a:hover{background:var(--lv-surface)!important}
+.lottolov-page .lottolov-hero{background:var(--lv-accent)!important;color:#fff!important;border:0!important;border-bottom:8px solid #C4ED38!important;border-radius:0 0 36px 36px!important}
+.lottolov-page .lottolov-hero .eyebrow{color:#C4ED38!important}
+.lottolov-page .lottolov-hero h1,.lottolov-page .lottolov-hero p{color:#fff!important}
+.lottolov-page .lottolov-hero h1 span{color:#FF4DAA!important}
+.lottolov-page .lottolov-hero>a{display:inline-flex;border:1px solid #fff!important;color:#fff!important;border-radius:999px!important}
+.lottolov-page .lottolov-collections{background:var(--lv-bg)!important;color:var(--lv-ink)!important}
+.lottolov-page .lottolov-collections h2,.lottolov-page .lottolov-collections h3,.lottolov-page .lottolov-collections p,.lottolov-page .lottolov-collections strong{color:var(--lv-ink)!important}
+.lottolov-page .eyebrow{color:var(--lv-accent)!important}
+.lottolov-page .lottolov-collection-index a,
+.lottolov-page .co-alphabet-index,
+.lottolov-page .co-cat-collection,
+.lottolov-page .shop-destinations>div{
+ border:1px solid var(--lv-line)!important;border-radius:26px!important;overflow:hidden!important;
+ box-shadow:var(--lv-elev)!important;color:var(--lv-ink)!important;
+}
+.lottolov-page .lottolov-collection-index a{background:var(--lv-card)!important}
+.lottolov-page .lottolov-collection-index a:nth-child(2){background:var(--lv-card-alt)!important}
+.lottolov-page .lottolov-collection-index span,
+.lottolov-page .co-alphabet-index p{color:var(--lv-muted)!important}
+.lottolov-page .verified-product{border-radius:22px!important;overflow:hidden!important}
+.lottolov-page .verified-artwork{background:var(--lv-surface)!important;border:1px solid var(--lv-line)!important;border-radius:20px!important;overflow:hidden!important}
+.lottolov-page .verified-artwork img{border-radius:19px!important}
+.lottolov-page .co-alphabet-index{background:var(--lv-surface)!important}
+.lottolov-page .co-letter-list a{background:var(--lv-bg)!important;color:var(--lv-ink)!important;border:1px solid var(--lv-line)!important;border-radius:12px!important}
+.lottolov-page .co-cat-collection{background:var(--lv-card)!important}
+.lottolov-page .co-cat-typography{border-radius:24px!important;background:#C4ED38!important;color:#301448!important}
+.lottolov-page .co-cat-typography *{color:#301448!important}
+.lottolov-page .co-cat-details{border-radius:24px!important;background:var(--lv-card)!important;color:var(--lv-ink)!important}
+.lottolov-page .co-collection-link,.lottolov-page .shop-destinations a{border-radius:999px!important}
+.lottolov-page .shop-destinations>div{background:var(--lv-card)!important}
+.lottolov-page .shop-destinations>div:nth-child(2){background:#C4ED38!important;color:#301448!important}
+.lottolov-page .shop-destinations>div:nth-child(2) h3,
+.lottolov-page .shop-destinations>div:nth-child(2) p{color:#301448!important}
+.lottolov-page .lottolov-catalogue-section{border-top:1px solid var(--lv-line)!important}
+.lottolov-page .lottolov-end{background:var(--lv-surface)!important;color:var(--lv-ink)!important;border-radius:32px 32px 0 0!important}
+.lottolov-page .lottolov-end h2{color:var(--lv-ink)!important}
+.lottolov-page .lottolov-end a{color:var(--lv-ink)!important;border-radius:999px!important}
+.lottolov-page footer{background:var(--lv-bg)!important;color:var(--lv-ink)!important;border-color:var(--lv-line)!important}
+.lottolov-page footer a{color:var(--lv-ink)!important}
+html[data-loto-theme="dark"] .lottolov-page{
+ --lv-bg:#141416;--lv-surface:#242428;--lv-card:#303036;--lv-card-alt:#39343E;
+ --lv-ink:#F6F3ED;--lv-muted:#D0CBD5;--lv-line:#76717E;--lv-accent:#AEBBFF;
+ --lv-elev:0 12px 36px rgba(0,0,0,.17);
+ color-scheme:dark;
+}
+html[data-loto-theme="dark"] .lottolov-page .lottolov-hero{background:#242428!important;border-bottom-color:#C4ED38!important}
+html[data-loto-theme="dark"] .lottolov-page .lottolov-hero h1 span{color:#FF4DAA!important}
+html[data-loto-theme="dark"] .lottolov-page .lottolov-collection-index a:nth-child(2){background:#39343E!important}
+html[data-loto-theme="dark"] .lottolov-page .co-cat-typography{background:#C4ED38!important}
+html[data-loto-theme="dark"] .lottolov-page .shop-destinations>div:nth-child(2){background:#C4ED38!important}
+html[data-loto-theme="dark"] .lottolov-page .lottolov-end span{color:#C4ED38!important}
+@media(max-width:767px){
+ .lottolov-page .lottolov-collection-index a,.lottolov-page .co-alphabet-index,
+ .lottolov-page .co-cat-collection,.lottolov-page .shop-destinations>div{border-radius:22px!important}
+ .lottolov-page .lottolov-hero{border-radius:0 0 26px 26px!important}
+ .lottolov-page .lottolov-end{border-radius:26px 26px 0 0!important}
+}
