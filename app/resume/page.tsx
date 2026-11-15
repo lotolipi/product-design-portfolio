@@ -1,5 +1,16 @@
+import type { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Resume — Shilpi Mishra | Lotolipi",
+  description: "Explore Shilpi Mishra's experience in visual design, enterprise UX, dashboards, data experiences and product design.",
+  alternates: { canonical: "/resume" },
+  openGraph: {
+    title: "Resume — Shilpi Mishra",
+    description: "Experience in visual design, enterprise UX, dashboards and product design.",
+    url: "/resume",
+    type: "profile",
+  },
+};
 import Link from "next/link";
-export const metadata={title:"Resume — Shilpi Mishra | lotolipi",description:"Shilpi Mishra — Product Design, Data & Decision Systems. Experience, selected work and education."};
 const roles=[
 {date:"2022 — NOW",company:"Kantar",role:"Senior Designer · Visual Design & Communications",place:"Bengaluru",points:["Design visual and interaction systems for data-heavy dashboards and enterprise tools.","Translate complex business requirements into structured information and UX workflows.","Explore scalable approaches to analytics experiences and advocate for clarity for non-technical stakeholders."]},
 {date:"2021 — 2022",company:"AICL Communications",role:"Designer",place:"Mumbai",points:["Designed communication systems for stakeholder and brand narratives.","Translated strategic messaging into structured visual deliverables with cross-functional teams."]},
