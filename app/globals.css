@@ -480,3 +480,17 @@ html[data-loto-theme="dark"] .lottolov-page .lottolov-end span{color:#C4ED38!imp
 .loto-skip-link{position:fixed;top:12px;left:12px;z-index:99999;padding:12px 18px;background:#F8F5EB;color:#301448;border:3px solid #173CDE;border-radius:8px;font-weight:700;transform:translateY(-180%);transition:none}
 .loto-skip-link:focus-visible{transform:translateY(0);outline:3px solid #E5008A;outline-offset:3px}
 #main-content:focus{outline:none}
+
+
+/* Accessibility contrast corrections from automated 375px bright/dark audit.
+   Scoped to reported elements; preserve layout, typography and imagery. */
+.co-site .co-hero-art-caption{color:#fff;border-color:#fff}
+.co-site .co-lotto-content{background:#cf007b}
+html[data-loto-theme="dark"] .co-site .co-about-expanded .co-about-lead{color:#a99bff}
+.lottolov-page .lottolov-hero h1 span{color:#ff91cb!important}
+.lottolov-page .lottolov-collection-index a[href="#cats"] span{color:#301448}
+.lottolov-page .lottolov-end span{color:#301448!important}
+html[data-loto-theme="dark"] .lottolov-page .verified-product .product-action{color:#b8afff!important}
+html[data-loto-theme="dark"] .lottolov-page .co-cat-typography strong{color:#301448!important}
+html[data-loto-theme="dark"] .lottolov-page .shop-destinations>div:first-child>span{color:#c2b5ff!important}
+.co-case-chapters .chapter-num{color:#b00068}
