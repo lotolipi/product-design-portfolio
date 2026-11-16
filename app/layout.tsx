@@ -21,4 +21,4 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-export default function RootLayout({children}:{children:React.ReactNode}){return <html lang="en"><body>{children}<ThemeToggle/></body></html>}
+export default function RootLayout({children}:{children:React.ReactNode}){return <html lang="en"><body><a className="loto-skip-link" href="#main-content">Skip to main content</a>{children}<ThemeToggle/></body></html>}
