@@ -6,7 +6,8 @@ const browser = await chromium.launch({ headless: true });
 let failed = false;
 for (const route of routes) {
   for (const theme of ["bright", "dark"]) {
-    const page = await browser.newPage({ viewport: { width: 375, height: 812 }, reducedMotion: "reduce" });
+    const context = await browser.newContext({ viewport: { width: 375, height: 812 }, reducedMotion: "reduce" });
+    const page = await context.newPage();
     await page.addInitScript((value) => {
       localStorage.setItem("lotolipi-theme", value);
     }, theme);
@@ -17,7 +18,7 @@ for (const route of routes) {
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 2);
     console.log(JSON.stringify({ route, theme, violations: results.violations.map(v => ({ id: v.id, impact: v.impact, count: v.nodes.length })), skip, main, overflow }));
     if (results.violations.length || skip !== 1 || main !== 1 || overflow) failed = true;
-    await page.close();
+    await context.close();
   }
 }
 await browser.close();
