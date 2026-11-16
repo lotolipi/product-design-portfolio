@@ -22,7 +22,7 @@ export default function PrivacyPage() {
       <h2>Preferences and site operation</h2>
       <p>The bright/dark theme control stores your preference in your browser&apos;s local storage under <code>lotolipi-theme</code>. You can clear this through your browser settings. The website&apos;s hosting and delivery providers may process technical request information such as IP addresses and device/browser information to operate and protect the site.</p>
       <h2>Analytics and cookies</h2>
-      <p>The current repository review did not identify an embedded analytics script or a website cookie banner. This does not verify whether hosting-level analytics or other externally configured services are active. If optional analytics requiring consent are enabled, this notice and the relevant consent controls should be updated before activation. The theme preference uses local storage rather than an advertising cookie.</p>
+      <p>The theme preference uses local storage rather than an advertising cookie. Information about optional analytics and cookies will be updated here if those services are enabled. Hosting and security services may process technical information as described above.</p>
       <h2>External destinations</h2>
       <p>Links to Payhip, Etsy, and other third-party websites take you outside Lotolipi. Those services apply their own privacy and cookie policies. Purchases and payments are handled on their respective platforms, not through this portfolio.</p>
       <h2>Your privacy requests</h2>
