@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 };
 
 export default function PrivacyPage() {
-  return <main className="co-site" style={{minHeight:"100vh"}}>
+  return <main id="main-content" tabIndex={-1} className="co-site" style={{minHeight:"100vh"}}>
     <header className="nav co-nav">
       <Link href="/" className="brand">shilpi<span>.</span>mishra</Link>
       <nav aria-label="Privacy page navigation"><Link href="/" className="co-nav-item">Back to portfolio</Link></nav>
