@@ -8,9 +8,9 @@ Updated: 16 November 2026. Scope: audit/privacy-accessibility-2026-11.
 - Theme toggle is a button, exposes its intended next action through `aria-label`, and persists the selection in localStorage (`lotolipi-theme`).
 - Contact form labels all four fields, uses browser-required validation, and opens a mailto draft; it does not submit to a website API.
 - WorkAtlas imagery has descriptive alt strings, and the chapter navigation is labelled.
-- The branch's GitHub Actions production build and TypeScript check passed in run 43828678739.
+- The branch's GitHub Actions production build and TypeScript check passed in runs 43828678739 and 43829216346.
 
-## Browser QA required (not yet performed)
+## Browser QA (automated mobile scan performed; manual checks still required)
 Test each of /, /privacy, /lottolov, /work/workatlas and /resume in bright and dark modes, at desktop width and 375px mobile width.
 
 1. Tab from page load: skip link becomes visible and Enter moves focus to main content; next Tab proceeds logically.
@@ -23,7 +23,7 @@ Test each of /, /privacy, /lottolov, /work/workatlas and /resume in bright and d
 8. On résumé: verify readable layout and Print → Save as PDF output.
 9. Check mobile horizontal overflow, navigation wrapping, Lottolov galleries, privacy-page headings, and footer links.
 
-Record screenshots, browser/OS, failures and fixes before marking these items passed.
+Automated Chromium/axe scan on 16 November 2026 (run 43829216379): all five routes in bright and dark modes at 375px showed one main landmark and one skip link each, with no document horizontal overflow. The scan failed on color-contrast violations on homepage, Lottolov and WorkAtlas and label-content-name-mismatch across all routes. The latter has a source-level correction on the audit branch; further browser verification is pending. This scan does not cover the desktop viewport, actual assistive technology, or manual keyboard and print checks. Record screenshots, browser/OS, failures and fixes before marking manual checks passed.
 
 ## Analytics/privacy gate
 - Source inspection does not prove whether GA4, Vercel Analytics, hosting request logs or injected scripts are active in production.
