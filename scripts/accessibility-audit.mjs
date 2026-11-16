@@ -16,7 +16,7 @@ for (const route of routes) {
     const skip = await page.locator('a.loto-skip-link[href="#main-content"]').count();
     const main = await page.locator("main#main-content").count();
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 2);
-    console.log(JSON.stringify({ route, theme, violations: results.violations.map(v => ({ id: v.id, impact: v.impact, count: v.nodes.length })), skip, main, overflow }));
+    console.log(JSON.stringify({ route, theme, violations: results.violations.map(v => ({ id: v.id, impact: v.impact, count: v.nodes.length, nodes: v.nodes.map(n => ({ target: n.target, html: n.html.slice(0,250), summary: n.failureSummary?.slice(0,350) })) })), skip, main, overflow }));
     if (results.violations.length || skip !== 1 || main !== 1 || overflow) failed = true;
     await context.close();
   }
