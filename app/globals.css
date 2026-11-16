@@ -474,3 +474,9 @@ html[data-loto-theme="dark"] .lottolov-page .lottolov-end span{color:#C4ED38!imp
  .lottolov-page .lottolov-hero{border-radius:0 0 26px 26px!important}
  .lottolov-page .lottolov-end{border-radius:26px 26px 0 0!important}
 }
+
+
+/* Accessible keyboard shortcut — visually hidden until focused */
+.loto-skip-link{position:fixed;top:12px;left:12px;z-index:99999;padding:12px 18px;background:#F8F5EB;color:#301448;border:3px solid #173CDE;border-radius:8px;font-weight:700;transform:translateY(-180%);transition:none}
+.loto-skip-link:focus-visible{transform:translateY(0);outline:3px solid #E5008A;outline-offset:3px}
+#main-content:focus{outline:none}
