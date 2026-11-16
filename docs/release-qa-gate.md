@@ -1,0 +1,35 @@
+# Lotolipi accessibility and analytics release gate
+
+Updated: 16 November 2026. Scope: audit/privacy-accessibility-2026-11.
+
+## Confirmed from source
+- Global skip link points to focusable `#main-content` on homepage, privacy, Lottolov, WorkAtlas and résumé pages.
+- CSS contains `:focus-visible` styling and `prefers-reduced-motion` overrides; coverage and actual contrast remain unverified.
+- Theme toggle is a button, exposes its intended next action through `aria-label`, and persists the selection in localStorage (`lotolipi-theme`).
+- Contact form labels all four fields, uses browser-required validation, and opens a mailto draft; it does not submit to a website API.
+- WorkAtlas imagery has descriptive alt strings, and the chapter navigation is labelled.
+- The branch's GitHub Actions production build and TypeScript check passed in run 43828678739.
+
+## Browser QA required (not yet performed)
+Test each of /, /privacy, /lottolov, /work/workatlas and /resume in bright and dark modes, at desktop width and 375px mobile width.
+
+1. Tab from page load: skip link becomes visible and Enter moves focus to main content; next Tab proceeds logically.
+2. Every navigation, footer, outbound link and theme control has visible focus, no clipped text, and sufficient touch targets.
+3. Screen-reader landmarks and headings form a meaningful hierarchy; decorative artwork is not announced unnecessarily; informative visuals have meaningful descriptions.
+4. Check WCAG AA text contrast (4.5:1 for normal text, 3:1 for large text) and non-text UI contrast (3:1) on both themes, including hover/focus states.
+5. With reduced-motion preference enabled, check no unnecessary motion remains.
+6. On homepage: submit contact form with empty and malformed email fields; ensure validation; verify valid submission opens only an email draft and does not send automatically.
+7. On WorkAtlas: check all six images load and image-opening links work.
+8. On résumé: verify readable layout and Print → Save as PDF output.
+9. Check mobile horizontal overflow, navigation wrapping, Lottolov galleries, privacy-page headings, and footer links.
+
+Record screenshots, browser/OS, failures and fixes before marking these items passed.
+
+## Analytics/privacy gate
+- Source inspection does not prove whether GA4, Vercel Analytics, hosting request logs or injected scripts are active in production.
+- Verify deployed page network requests and Vercel project integrations/environment variables. Record any GA4 Measurement ID privately, not in public audit notes.
+- If optional non-essential tracking is active or planned, assess applicable consent and disclosure requirements before enabling it. Do not add a generic cookie banner without identifying actual technologies.
+- Confirm the published privacy notice accurately describes the services and data handling.
+
+## Release gate
+Do not merge or deploy until browser QA is recorded, analytics/privacy facts are verified, and the owner approves the release. No legal-compliance certification is claimed.
