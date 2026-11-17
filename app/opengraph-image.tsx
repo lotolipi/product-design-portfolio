@@ -5,9 +5,21 @@ export const alt = "Shilpi Mishra — I design complex products that feel clear.
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-export default function OpenGraphImage() {
+async function loadDisplayFont(): Promise<ArrayBuffer | undefined> {
+  try {
+    const cssResponse = await fetch("https://fonts.googleapis.com/css2?family=Inter:wght@900", { headers: { "User-Agent": "Mozilla/5.0" }, next: { revalidate: 86400 } });
+    if (!cssResponse.ok) return undefined;
+    const css = await cssResponse.text();
+    const fontUrl = css.split("url(")[1]?.split(")")[0];
+    if (!fontUrl?.startsWith("https://")) return undefined;
+    const fontResponse = await fetch(fontUrl, { next: { revalidate: 86400 } });
+    return fontResponse.ok ? fontResponse.arrayBuffer() : undefined;
+  } catch { return undefined; }
+}
+export default async function OpenGraphImage() {
+  const displayFont = await loadDisplayFont();
   return new ImageResponse(
-    <div style={{ width: "100%", height: "100%", display: "flex", position: "relative", overflow: "hidden", background: "#F8F5EB", color: "#301448", fontFamily: "Arial, sans-serif", padding: "52px 62px", flexDirection: "column" }}>
+    <div style={{ width: "100%", height: "100%", display: "flex", position: "relative", overflow: "hidden", background: "#F8F5EB", color: "#301448", fontFamily: displayFont ? "Inter" : "Arial, sans-serif", padding: "52px 62px", flexDirection: "column" }}>
       <div style={{ display: "flex", fontSize: 34, fontWeight: 900, letterSpacing: -1.8 }}>
         shilpi.mishra<span style={{ color: "#E5008A" }}>.</span>
       </div>
@@ -47,6 +59,6 @@ export default function OpenGraphImage() {
       </div>
       <div style={{ display: "flex", position: "absolute", left: 1010, top: 222, width: 65, height: 16, borderRadius: 9, background: "#E5008A", transform: "rotate(40deg)" }} />
     </div>,
-    { ...size }
+    { ...size, fonts: displayFont ? [{ name: "Inter", data: displayFont, weight: 900 as const, style: "normal" as const }] : [] }
   );
 }
