@@ -2,7 +2,7 @@ name: Lotolipi browser accessibility audit
 on:
   push:
     branches:
-      - audit/privacy-accessibility-2026-11
+      - main
     paths:
       - 'app/**'
       - 'components/**'
