@@ -485,7 +485,11 @@ html[data-loto-theme="dark"] .lottolov-page .lottolov-end span{color:#C4ED38!imp
 /* Accessibility contrast corrections from automated 375px bright/dark audit.
    Scoped to reported elements; preserve layout, typography and imagery. */
 .co-site .co-hero-art-caption{color:#fff;border-color:#fff}
-.co-site .co-lotto-content{background:#cf007b}
+/* Keep the accessible darker magenta as one seamless section surface, not a text-panel overlay. */
+.co-site .co-lottolov{background:#cf007b}
+.co-site .co-lotto-content{background:transparent;min-width:0}
+.co-site .co-lottolov h2{overflow-wrap:normal}
+@media(max-width:600px){.co-site .co-lottolov h2{font-size:clamp(48px,11vw,74px);line-height:1.02;letter-spacing:-.065em}.co-site .co-lottolov h2 em{overflow-wrap:anywhere}.co-site .co-lotto-content .co-button{max-width:100%;white-space:normal;text-align:center}}
 html[data-loto-theme="dark"] .co-site .co-about-expanded .co-about-lead{color:#a99bff}
 .lottolov-page .lottolov-hero h1 span{color:#ff91cb!important}
 .lottolov-page .lottolov-collection-index a[href="#cats"] span{color:#301448}
