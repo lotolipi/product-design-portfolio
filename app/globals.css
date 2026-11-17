@@ -578,3 +578,100 @@ html[data-loto-theme="dark"] .co-case-page footer a{color:#F6F3ED}
 
 /* Axe audit: readable small caption on peach Cats collection tile in bright mode. */
 html:not([data-loto-theme="dark"]) .lottolov-page .lottolov-collection-index a[href="#cats"] > span{color:#301448!important}
+
+
+/* Lotolipi motion direction C — expressive editorial movement.
+   Progressive enhancement: content remains visible when scroll timelines are unsupported.
+   Transform/opacity-only animation preserves layout and avoids horizontal overflow. */
+@media (prefers-reduced-motion:no-preference) {
+  .co-site .co-button,
+  .co-site .co-text-link,
+  .co-site .co-nav a,
+  .co-case-page .case-links a,
+  .co-case-page .frame-link,
+  .lottolov-page .lottolov-hero>a,
+  .lottolov-page .lottolov-end a,
+  .lottolov-page .shop-destinations a,
+  .lottolov-page .co-collection-link {
+    transition: transform 280ms cubic-bezier(.2,.8,.2,1), box-shadow 280ms ease, opacity 220ms ease;
+  }
+  .co-site .co-button:hover,
+  .co-site .co-text-link:hover,
+  .co-case-page .case-links a:hover,
+  .lottolov-page .lottolov-hero>a:hover,
+  .lottolov-page .lottolov-end a:hover,
+  .lottolov-page .shop-destinations a:hover,
+  .lottolov-page .co-collection-link:hover {
+    transform:translateY(-4px);
+  }
+  .co-site .co-button:active,
+  .co-case-page .case-links a:active,
+  .lottolov-page .shop-destinations a:active { transform:translateY(1px) scale(.985); }
+  .co-site .co-feature,
+  .lottolov-page .lottolov-collection-index a,
+  .lottolov-page .verified-product,
+  .lottolov-page .shop-destinations>div {
+    transition:transform 420ms cubic-bezier(.2,.8,.2,1),box-shadow 420ms ease;
+  }
+  .co-site .co-feature-image img,
+  .lottolov-page .verified-artwork img,
+  .co-case-page .case-frame {
+    transition:transform 650ms cubic-bezier(.2,.8,.2,1);
+  }
+  @media(hover:hover) and (pointer:fine) {
+    .co-site .co-feature:hover,
+    .lottolov-page .lottolov-collection-index a:hover,
+    .lottolov-page .verified-product:hover,
+    .lottolov-page .shop-destinations>div:hover {
+      transform:translateY(-7px);
+    }
+    .co-site .co-feature:hover .co-feature-image img,
+    .lottolov-page .verified-product:hover .verified-artwork img {transform:scale(1.045);}
+    .co-case-page .frame-link:hover .case-frame {transform:scale(1.012);}
+  }
+  .co-site .co-hero-copy,
+  .co-case-page .co-case-hero>h1,
+  .lottolov-page .lottolov-hero>h1 {
+    animation:loto-motion-intro 800ms cubic-bezier(.16,1,.3,1) both;
+  }
+  .co-site .co-hero-copy .co-actions {animation:loto-motion-intro 900ms 160ms cubic-bezier(.16,1,.3,1) both;}
+  @keyframes loto-motion-intro {
+    from {opacity:0;transform:translate3d(0,26px,0);}
+    to {opacity:1;transform:translate3d(0,0,0);}
+  }
+  @keyframes loto-motion-reveal {
+    from {opacity:.25;transform:translate3d(0,38px,0);}
+    to {opacity:1;transform:translate3d(0,0,0);}
+  }
+  @supports (animation-timeline:view()) {
+    .co-site .co-section-title,
+    .co-site .co-feature,
+    .co-site .co-principles,
+    .co-site .co-about,
+    .co-case-page .co-case-intro,
+    .co-case-page .co-case-chapters .chapter,
+    .lottolov-page .lottolov-collection-index,
+    .lottolov-page .lottolov-catalogue-section,
+    .lottolov-page .shop-destinations,
+    .lottolov-page .lottolov-end h2 {
+      animation-name:loto-motion-reveal;
+      animation-duration:1ms;
+      animation-timing-function:linear;
+      animation-fill-mode:both;
+      animation-timeline:view();
+      animation-range:entry 0% cover 30%;
+    }
+  }
+}
+/* A11y: never require motion to understand or operate the portfolio. */
+@media(prefers-reduced-motion:reduce) {
+  .co-site .co-button,
+  .co-site .co-text-link,
+  .co-site .co-feature,
+  .co-site .co-feature-image img,
+  .co-case-page .case-frame,
+  .lottolov-page .verified-artwork img,
+  .lottolov-page .verified-product,
+  .lottolov-page .lottolov-collection-index a,
+  .lottolov-page .shop-destinations>div {animation:none!important;transition:none!important;transform:none!important;}
+}
