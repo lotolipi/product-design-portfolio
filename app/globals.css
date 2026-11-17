@@ -494,3 +494,11 @@ html[data-loto-theme="dark"] .lottolov-page .verified-product .product-action{co
 html[data-loto-theme="dark"] .lottolov-page .co-cat-typography strong{color:#301448!important}
 html[data-loto-theme="dark"] .lottolov-page .shop-destinations>div:first-child>span{color:#c2b5ff!important}
 .co-case-chapters .chapter-num{color:#b00068}
+
+/* Mobile QA: keep Lottolov artwork and shop calls-to-action legible, aligned and tappable. */
+.lottolov-page .verified-product{display:flex;flex-direction:column;min-width:0}
+.lottolov-page .verified-product .product-action{display:inline-flex;align-items:center;justify-content:center;align-self:flex-start;min-height:44px;max-width:100%;margin-top:auto;padding:10px 0;line-height:1.35;white-space:normal;text-align:left;text-decoration:none}
+.lottolov-page .verified-product h3{line-height:1.3;overflow-wrap:anywhere}
+.lottolov-page .shop-destinations>div{display:flex;flex-direction:column;align-items:flex-start;min-width:0}
+.lottolov-page .shop-destinations a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;max-width:100%;margin-top:auto;padding:12px 18px!important;line-height:1.3;text-align:center;white-space:normal;overflow-wrap:anywhere;border:2px solid currentColor!important;text-decoration:none;font-weight:700}
+@media(max-width:767px){.lottolov-page .verified-products{align-items:stretch}.lottolov-page .verified-product{height:100%}.lottolov-page .verified-product .product-action{font-size:12px}.lottolov-page .shop-destinations a{width:100%;margin-top:16px}.lottolov-page .shop-destinations>div{align-items:stretch}}
