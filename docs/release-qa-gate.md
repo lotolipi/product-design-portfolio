@@ -43,3 +43,11 @@ Do not merge or deploy until browser QA is recorded, analytics/privacy facts are
 - Existing 16 November automated axe failures (color contrast and label/content-name mismatch) remain **open pending a fresh scan**, despite subsequent source changes.
 - Remaining hard gates: fresh automated accessibility scan in both themes on all five routes, manual desktop/keyboard/reduced-motion check, production/preview network request inspection and privacy disclosure review, latest-SHA CI confirmation, and explicit final production-release authorization.
 - **Do not merge, promote, or manually deploy production** until all hard gates have evidence and owner authorizes release.
+
+## 17 November 2026 — latest verification checkpoint
+- Owner-provided GitHub Actions screenshots show green successful runs **#16** (commit `255a919`, Lottolov Cats caption contrast correction) and **#17** (commit `4cc0652`, workflow trigger filtering), both on `audit/privacy-accessibility-2026-11`. These supersede earlier red runs. The latest browser accessibility workflow gate is **PASS**; this is not a claim of manual assistive-technology certification.
+- Vercel preview deployment for `4cc0652` was confirmed **READY** on `product-design-portfolio-9dwd`; production was not promoted.
+- Read-only HTTP fetches of both `https://www.lotolipi.space/` and the latest preview homepage returned HTTP 200. The fetched initial HTML did not expose a GA4 Measurement ID, `googletagmanager.com`, `google-analytics.com`, or Vercel Analytics script marker. This does **not** rule out client-side dynamic network requests, third-party injection, or hosting telemetry; no live browser network capture was performed.
+- `app/layout.tsx` has no GA4 installation. The correct Vercel project's environment-variable listing returned no entries. **GA4 collection is not verified as active**; do not claim visitor tracking works or enable it without configuration and privacy review.
+- Manual desktop keyboard tab order, focus visibility, screen-reader behaviour, reduced-motion presentation, and résumé print/PDF still need real-browser verification; these cannot be marked passed from the automated axe results alone.
+- Release remains **HOLD** pending manual QA, GA4/privacy decision and explicit owner authorization. No merge, production deployment, or purchase is authorized.
