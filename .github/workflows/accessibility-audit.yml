@@ -1,0 +1,54 @@
+name: Lotolipi browser accessibility audit
+on:
+  push:
+    branches:
+      - audit/privacy-accessibility-2026-11
+    paths:
+      - 'app/**'
+      - 'components/**'
+      - 'scripts/accessibility-audit.mjs'
+      - 'scripts/analytics-qa.mjs'
+      - '.github/workflows/accessibility-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  accessibility:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      NEXT_TELEMETRY_DISABLED: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install site and browser test tools
+        run: |
+          npm install --no-audit --no-fund
+          npm install --no-save --no-audit --no-fund playwright @axe-core/playwright
+          npx playwright install --with-deps chromium
+      - name: Build site
+        run: npm run build
+      - name: Start local server
+        run: |
+          npm run start -- --hostname 127.0.0.1 > /tmp/lotolipi-next.log 2>&1 &
+          for i in $(seq 1 45); do
+            if curl -fsS http://127.0.0.1:3000/ >/dev/null; then exit 0; fi
+            sleep 2
+          done
+          cat /tmp/lotolipi-next.log
+          exit 1
+      - name: Audit five routes, both themes, mobile and desktop
+        run: node scripts/accessibility-audit.mjs
+      - name: Audit GA4 consent, persistence and preview isolation
+        run: node scripts/analytics-qa.mjs
+      - name: Preserve accessibility findings
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lotolipi-accessibility-report
+          path: |
+            accessibility-report.json
+            analytics-qa-report.json
+          if-no-files-found: warn
