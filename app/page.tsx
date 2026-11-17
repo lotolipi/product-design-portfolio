@@ -4,8 +4,19 @@ import WorkAtlasImage from "../components/workatlas-image";
 import ContactComposer from "../components/contact-composer";
 import Link from "next/link";
 
+const personStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://www.lotolipi.space/#person",
+  name: "Shilpi Mishra",
+  url: "https://www.lotolipi.space/",
+  jobTitle: "Senior Designer",
+  worksFor: { "@type": "Organization", name: "Kantar" },
+  knowsAbout: ["Product Design", "Enterprise UX", "Design Systems", "Data Experiences", "Visual Communication"],
+};
+
 const principles=[{number:"01",title:"Understand",description:"Get to the heart of a problem through people, context and data.",icon:"understand"},{number:"02",title:"Connect",description:"Bring together user needs, business goals and real-world constraints.",icon:"connect"},{number:"03",title:"Refine",description:"Iterate, simplify and polish to create meaningful, easy-to-use experiences.",icon:"refine"}];
-export default function Home(){return <main id="main-content" tabIndex={-1} className="co-site">
+export default function Home(){return <><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personStructuredData).replace(/</g, "\\u003c") }} /><main id="main-content" tabIndex={-1} className="co-site">
 <header className="nav co-nav"><Link href="/" className="brand">shilpi<span>.</span>mishra</Link><nav aria-label="Main navigation"><a href="#work" aria-label="Work" className="co-nav-item"><span className="co-nav-text">Work</span></a><a href="#approach" aria-label="Approach" className="co-nav-item"><span className="co-nav-text">Approach</span></a><Link href="/lottolov" aria-label="Lottolov" className="co-nav-item"><span className="co-nav-text">Lottolov</span></Link><Link href="/resume" aria-label="Resume" className="co-nav-item"><span className="co-nav-text">Resume</span></Link><a href="#contact" aria-label="Say hello / Contact" className="co-nav-contact"><span className="co-nav-text">Say hello </span></a></nav></header>
 <section className="co-hero" aria-labelledby="co-title"><div className="co-hero-top"><span>PRODUCT DESIGN / ENTERPRISE UX / VISUAL COMMUNICATION</span><span>SENIOR DESIGNER AT KANTAR · INDIA</span></div><div className="co-hero-main"><div className="co-hero-copy"><span className="co-kicker">DESIGNING FOR CLARITY IN COMPLEXITY</span><h1 id="co-title">I design <span>complex</span> products that feel <em>clear.</em></h1><p>Senior Designer at Kantar, working across enterprise UX, data-heavy interfaces and visual communication. I turn layered workflows, information and ambiguity into clearer digital experiences.</p><div className="co-actions"><a href="#work" className="co-button">Explore selected work </a><a href="#about" className="co-text-link">Get to know me </a></div></div><HeroArtwork/></div><div className="co-hero-foot"><span>DESIGN SYSTEMS · DATA EXPERIENCES · ENTERPRISE TOOLS</span><span>01 / 05</span></div></section>
 <div className="co-ticker" aria-label="Areas of practice"><span>PRODUCT THINKING</span><span className="co-ticker-mark" aria-hidden="true"/><span>VISUAL SYSTEMS</span><span className="co-ticker-mark" aria-hidden="true"/><span>INTERACTION DESIGN</span><span className="co-ticker-mark" aria-hidden="true"/><span>DESIGN FOR COMPLEXITY</span></div>
@@ -15,4 +26,4 @@ export default function Home(){return <main id="main-content" tabIndex={-1} clas
 <section className="co-lottolov"><div className="co-lotto-content"><span className="co-kicker">04 / MY CREATIVE UNIVERSE</span><h2>Meet <em>Lottolov.</em></h2><p>Original illustrations, printable art and playful visual experiments—made by me.</p><Link href="/lottolov" className="co-button">Explore original artwork </Link></div><div className="co-lotto-art"><div className="co-lotto-art-head"><span>ORIGINAL WORK / BOTANICA</span></div><img src="/lottolov/botanica-z.png" alt="Original Lottolov Botanica Z printable artwork" loading="lazy"/><span className="co-lotto-art-foot">CREATED, NOT GENERATED</span></div></section>
 <section id="contact" className="co-contact co-contact-expanded"><span className="co-kicker">05 / SAY HELLO</span><h2>Let's make something <em>matter.</em></h2><ContactComposer/></section>
 <footer className="co-footer"><strong>shilpi.mishra</strong><span>PRODUCT / VISUAL / SYSTEMS</span><Link href="/privacy">Privacy & site information</Link><a href="#co-title">Back to top </a></footer>
-</main>}
+</main></>}
