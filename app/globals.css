@@ -575,3 +575,6 @@ html[data-loto-theme="dark"] .co-case-page .co-case-limitation{background:#30303
 html[data-loto-theme="dark"] .co-case-page .co-case-limitation p,html[data-loto-theme="dark"] .co-case-page .co-case-limitation strong{color:#F6F3ED}
 html[data-loto-theme="dark"] .co-case-page footer{background:#242429;color:#F6F3ED}
 html[data-loto-theme="dark"] .co-case-page footer a{color:#F6F3ED}
+
+/* Axe audit: readable small caption on peach Cats collection tile in bright mode. */
+html:not([data-loto-theme="dark"]) .lottolov-page .lottolov-collection-index a[href="#cats"] > span{color:#301448!important}
