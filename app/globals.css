@@ -502,3 +502,39 @@ html[data-loto-theme="dark"] .lottolov-page .shop-destinations>div:first-child>s
 .lottolov-page .shop-destinations>div{display:flex;flex-direction:column;align-items:flex-start;min-width:0}
 .lottolov-page .shop-destinations a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;max-width:100%;margin-top:auto;padding:12px 18px!important;line-height:1.3;text-align:center;white-space:normal;overflow-wrap:anywhere;border:2px solid currentColor!important;text-decoration:none;font-weight:700}
 @media(max-width:767px){.lottolov-page .verified-products{align-items:stretch}.lottolov-page .verified-product{height:100%}.lottolov-page .verified-product .product-action{font-size:12px}.lottolov-page .shop-destinations a{width:100%;margin-top:16px}.lottolov-page .shop-destinations>div{align-items:stretch}}
+
+/* WorkAtlas mobile editorial refinement: hierarchy, compact project facts, and softened image cards. */
+.co-case-page .co-case-hero h1{line-height:1.02;overflow-wrap:anywhere}
+.co-case-page .co-case-intro:not(.co-case-decision){grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,3vw,36px);padding-top:38px;padding-bottom:42px}
+.co-case-page .co-case-intro:not(.co-case-decision)>div{min-width:0;border-left:2px solid rgba(48,20,72,.45);padding-left:18px}
+.co-case-page .co-case-intro:not(.co-case-decision) small{display:block;font-size:11px;line-height:1.35;letter-spacing:.13em}
+.co-case-page .co-case-intro:not(.co-case-decision) p{margin:12px 0 0;font-size:clamp(17px,2vw,24px);line-height:1.3;letter-spacing:-.025em}
+.co-case-page .co-case-decision{background:#f8f5eb;color:#301448;border-bottom:2px solid #301448;grid-template-columns:1.15fr 1fr 1fr;gap:clamp(18px,3vw,40px);padding-top:54px;padding-bottom:56px}
+.co-case-page .co-case-decision>div{min-width:0}
+.co-case-page .co-case-decision small{display:block;font-size:11px;line-height:1.4;letter-spacing:.13em;color:#a60066}
+.co-case-page .co-case-decision p{font-size:clamp(16px,1.7vw,22px);font-weight:500;line-height:1.48;letter-spacing:-.015em;margin:12px 0 0}
+.co-case-page .co-case-decision>div:first-child p{font-size:clamp(26px,3vw,43px);line-height:1.1;letter-spacing:-.05em}
+.co-case-page .co-case-chapters .frame-link{display:block;border:0;overflow:visible;max-width:100%}
+.co-case-page .co-case-chapters .case-frame{border-radius:18px!important;overflow:hidden;display:block;width:100%;height:auto}
+.co-case-page .co-case-chapters .frame-hint{font-size:14px;line-height:1.45}
+@media(max-width:767px){
+.co-case-page .co-case-hero{padding:46px 22px 52px}
+.co-case-page .co-case-hero .eyebrow{font-size:10px;line-height:1.5;letter-spacing:.11em}
+.co-case-page .co-case-hero h1{font-size:clamp(52px,12vw,76px);letter-spacing:-.075em;margin:22px 0 18px}
+.co-case-page .co-case-hero>p{font-size:clamp(26px,7vw,38px);line-height:1.14;margin:0 0 24px}
+.co-case-page .co-case-hero .case-links{margin-top:20px;gap:14px 22px}
+.co-case-page .co-case-hero .case-links a{font-size:14px;line-height:1.4;letter-spacing:0}
+.co-case-page .co-case-intro:not(.co-case-decision){grid-template-columns:1fr;gap:0;padding:26px 22px}
+.co-case-page .co-case-intro:not(.co-case-decision)>div{border-left:0;border-top:1px solid rgba(48,20,72,.28);padding:16px 0}
+.co-case-page .co-case-intro:not(.co-case-decision)>div:first-child{border-top:0;padding-top:0}
+.co-case-page .co-case-intro:not(.co-case-decision)>div:last-child{padding-bottom:0}
+.co-case-page .co-case-intro:not(.co-case-decision) p{font-size:19px;line-height:1.32;margin-top:7px}
+.co-case-page .co-case-decision{grid-template-columns:1fr;gap:22px;padding:38px 22px}
+.co-case-page .co-case-decision>div+div{border-top:1px solid #d8cde0;padding-top:20px}
+.co-case-page .co-case-decision>div:first-child p{font-size:32px;line-height:1.12}
+.co-case-page .co-case-decision p{font-size:17px;line-height:1.45;margin-top:8px}
+.co-case-page .co-case-chapters .chapter{padding:42px 0}
+.co-case-page .co-case-chapters .chapter h2{font-size:clamp(40px,10vw,54px);line-height:1.04;letter-spacing:-.065em}
+.co-case-page .co-case-chapters .chapter p{font-size:17px;line-height:1.55}
+.co-case-page .co-case-chapters .case-frame{border-radius:14px!important;box-shadow:6px 6px 0 #D9C8FF!important}
+}
