@@ -3,6 +3,11 @@ on:
   push:
     branches:
       - audit/privacy-accessibility-2026-11
+    paths:
+      - 'app/**'
+      - 'components/**'
+      - 'scripts/accessibility-audit.mjs'
+      - '.github/workflows/accessibility-audit.yml'
   workflow_dispatch:
 permissions:
   contents: read
