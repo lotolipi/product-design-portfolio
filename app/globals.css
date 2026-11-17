@@ -538,3 +538,6 @@ html[data-loto-theme="dark"] .lottolov-page .shop-destinations>div:first-child>s
 .co-case-page .co-case-chapters .chapter p{font-size:17px;line-height:1.55}
 .co-case-page .co-case-chapters .case-frame{border-radius:14px!important;box-shadow:6px 6px 0 #D9C8FF!important}
 }
+
+/* WorkAtlas: halve the case-study image outline from 3px to 1.5px, preserving radius and shadow. */
+.co-case-page .co-case-chapters .case-frame{border-width:1.5px!important}
