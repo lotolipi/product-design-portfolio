@@ -33,3 +33,13 @@ Automated Chromium/axe scan on 16 November 2026 (run 43829216379): all five rout
 
 ## Release gate
 Do not merge or deploy until browser QA is recorded, analytics/privacy facts are verified, and the owner approves the release. No legal-compliance certification is claimed.
+
+## 17 November 2026 release-candidate checkpoint
+- Latest preview deployment for commit `dce9bd3cc9aa45f47e30d50ce6a424fa57dcd0b8` was confirmed **READY** on the correct Vercel project `product-design-portfolio-9dwd`, preview URL: https://product-design-portfolio-9dwd-ap11ty8fg-lottolov.vercel.app/work/workatlas.
+- Owner approved proceeding with the **next necessary QA work** after the WorkAtlas dark-mode refinements. This is not recorded as approval to merge or deploy production.
+- GitHub commit-specific workflow lookup returned no runs for the latest SHA; earlier successful runs do not certify this SHA.
+- Source audit: `app/layout.tsx` contains no GA4 injection; Vercel project environment-variable listing returned no entries, and project integration listing returned no entries. These observations do **not** establish that production network traffic contains no analytics.
+- Theme toggle source uses a button, dynamic accessible name, `aria-pressed`, and `lotolipi-theme` local storage. Latest browser verification of labels, contrast, keyboard use, and dark-mode presentation is still required.
+- Existing 16 November automated axe failures (color contrast and label/content-name mismatch) remain **open pending a fresh scan**, despite subsequent source changes.
+- Remaining hard gates: fresh automated accessibility scan in both themes on all five routes, manual desktop/keyboard/reduced-motion check, production/preview network request inspection and privacy disclosure review, latest-SHA CI confirmation, and explicit final production-release authorization.
+- **Do not merge, promote, or manually deploy production** until all hard gates have evidence and owner authorizes release.
