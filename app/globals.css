@@ -474,3 +474,15 @@ html[data-loto-theme="dark"] .lottolov-page .lottolov-end span{color:#C4ED38!imp
  .lottolov-page .lottolov-hero{border-radius:0 0 26px 26px!important}
  .lottolov-page .lottolov-end{border-radius:26px 26px 0 0!important}
 }
+
+
+/* WorkAtlas recruiter next-step CTA */
+.co-case-page .co-case-next{padding:76px 5%;background:#F8F5EB;color:#301448;border-top:3px solid #301448}
+.co-case-page .co-case-next h2{max-width:850px;font-size:clamp(38px,5vw,72px);line-height:1.05;letter-spacing:-.055em;margin:22px 0}
+.co-case-page .co-case-next p{max-width:600px;font-size:18px;line-height:1.55}
+.co-case-page .co-case-next-actions{display:flex;flex-wrap:wrap;gap:16px;margin-top:30px}
+.co-case-page .co-case-next-actions a{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:14px 24px;border:2px solid #173CDE;border-radius:999px;font-size:14px;font-weight:800;text-decoration:none}
+.co-case-page .co-case-next-actions .co-case-next-primary{background:#173CDE;color:#fff}
+.co-case-page .co-case-next-actions .co-case-next-secondary{background:transparent;color:#173CDE}
+.co-case-page .co-case-next-actions a:focus-visible{outline:3px solid #E5008A;outline-offset:4px}
+@media(max-width:767px){.co-case-page .co-case-next{padding:52px 22px}.co-case-page .co-case-next-actions{flex-direction:column}.co-case-page .co-case-next-actions a{width:100%}}
