@@ -7,6 +7,7 @@ on:
       - 'app/**'
       - 'components/**'
       - 'scripts/accessibility-audit.mjs'
+      - 'scripts/analytics-qa.mjs'
       - '.github/workflows/accessibility-audit.yml'
   workflow_dispatch:
 permissions:
@@ -40,10 +41,14 @@ jobs:
           exit 1
       - name: Audit five routes, both themes, mobile and desktop
         run: node scripts/accessibility-audit.mjs
+      - name: Audit GA4 consent, persistence and preview isolation
+        run: node scripts/analytics-qa.mjs
       - name: Preserve accessibility findings
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: lotolipi-accessibility-report
-          path: accessibility-report.json
+          path: |
+            accessibility-report.json
+            analytics-qa-report.json
           if-no-files-found: warn
