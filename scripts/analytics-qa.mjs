@@ -55,7 +55,7 @@ try {
   await scenario("production host: acceptance loads GA4 and persists", async (page, requests, base) => {
     await page.goto(base + "/", { waitUntil: "networkidle" });
     await page.getByRole("button", { name: "Allow analytics" }).click();
-    await page.locator('script[src*="googletagmanager.com/gtag/js"]').waitFor();
+    await page.locator('script[src*="googletagmanager.com/gtag/js"]').waitFor({ state: "attached" });
     if (!requests.some(url => url.includes("G-15PTW9YS2F"))) throw Error("GA4 loader not requested after consent");
     await page.reload({ waitUntil: "networkidle" });
     if (await page.getByRole("button", { name: "Allow analytics" }).count()) throw Error("Acceptance not persisted");
