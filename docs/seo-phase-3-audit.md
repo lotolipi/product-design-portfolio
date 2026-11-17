@@ -37,3 +37,13 @@ Scope: Search Console screenshot evidence from the user and source inspection of
 - No invented traffic or ranking metrics.
 - No confidential employer/client information in public case studies.
 - Do not trigger Vercel builds, merge or purchase without explicit approval.
+
+## Search performance baseline — 2026-11-18
+Source: user-supplied screenshot of Google Search Console Performance with **3 months** selected and last update **4 hours ago**.
+- Total clicks: **0**.
+- Total impressions: **0**.
+- Average CTR shown: **0%** (no impressions; not an interpretable engagement rate).
+- Average position: not visible in screenshot; do not infer a value.
+- Visible chart dates: 2026-11-14 through 2026-11-15, despite 3-month selection. Do not infer a complete 3-month reporting history.
+- No query-level or page-level performance data was supplied.
+- Next action: monitor for first impressions; review queries/pages when nonzero data becomes available. No sitemap resubmission or indexing request needed for already indexed URLs.
