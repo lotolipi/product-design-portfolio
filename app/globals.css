@@ -549,3 +549,29 @@ html[data-loto-theme="dark"] .lottolov-page .shop-destinations>div:first-child>s
 .co-case-page .co-case-limitation{border-top:0!important}
 .co-case-page .co-case-chapters{border-top:0!important}
 @media(max-width:767px){.co-case-page .co-case-chapters .chapter+.chapter{border-top:1px solid rgba(48,20,72,.10)!important}}
+
+/* WorkAtlas dark theme: align inner-page surfaces with the homepage graphite palette. */
+html[data-loto-theme="dark"] .co-case-page{--ink:#F6F3ED;--cream:#1B1B1F;--stone:#56515C;--muted:#D0CDD3;background:#1B1B1F;color:#F6F3ED}
+html[data-loto-theme="dark"] .co-case-page .co-nav{background:#242429;color:#F6F3ED;border-bottom-color:#55515D}
+html[data-loto-theme="dark"] .co-case-page .co-nav a,html[data-loto-theme="dark"] .co-case-page .co-nav .brand{color:#F6F3ED}
+html[data-loto-theme="dark"] .co-case-page .co-case-hero{background:#242429;color:#F6F3ED;border-bottom-color:#A7D53B}
+html[data-loto-theme="dark"] .co-case-page .co-case-hero .eyebrow{color:#C4ED38}
+html[data-loto-theme="dark"] .co-case-page .co-case-hero .case-links a{color:#F6F3ED;border-color:#C4ED38}
+html[data-loto-theme="dark"] .co-case-page .co-case-intro:not(.co-case-decision){background:#303036;color:#F6F3ED}
+html[data-loto-theme="dark"] .co-case-page .co-case-intro:not(.co-case-decision) small{color:#C9B6FF}
+html[data-loto-theme="dark"] .co-case-page .co-case-intro:not(.co-case-decision)>div{border-color:rgba(246,243,237,.22)}
+html[data-loto-theme="dark"] .co-case-page .co-case-decision{background:#242429;color:#F6F3ED}
+html[data-loto-theme="dark"] .co-case-page .co-case-decision small{color:#F5A0D0}
+html[data-loto-theme="dark"] .co-case-page .co-case-decision>div+div{border-color:#55515D}
+html[data-loto-theme="dark"] .co-case-page .co-case-chapters{background:#1B1B1F;color:#F6F3ED}
+html[data-loto-theme="dark"] .co-case-page .co-case-chapters .chapter{color:#F6F3ED}
+html[data-loto-theme="dark"] .co-case-page .co-case-chapters .chapter h2{color:#F6F3ED}
+html[data-loto-theme="dark"] .co-case-page .co-case-chapters .chapter p{color:#D0CDD3}
+html[data-loto-theme="dark"] .co-case-page .co-case-chapters .chapter-num{color:#F5A0D0}
+html[data-loto-theme="dark"] .co-case-page .co-case-chapters .chapter+.chapter{border-top-color:rgba(246,243,237,.16)!important}
+html[data-loto-theme="dark"] .co-case-page .co-case-chapters .case-frame{background:#F8F5EB;border-color:#AAA2B8}
+html[data-loto-theme="dark"] .co-case-page .co-case-chapters .frame-link{color:#C9B6FF}
+html[data-loto-theme="dark"] .co-case-page .co-case-limitation{background:#303036;color:#F6F3ED}
+html[data-loto-theme="dark"] .co-case-page .co-case-limitation p,html[data-loto-theme="dark"] .co-case-page .co-case-limitation strong{color:#F6F3ED}
+html[data-loto-theme="dark"] .co-case-page footer{background:#242429;color:#F6F3ED}
+html[data-loto-theme="dark"] .co-case-page footer a{color:#F6F3ED}
