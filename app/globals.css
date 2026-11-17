@@ -541,3 +541,11 @@ html[data-loto-theme="dark"] .lottolov-page .shop-destinations>div:first-child>s
 
 /* WorkAtlas: halve the case-study image outline from 3px to 1.5px, preserving radius and shadow. */
 .co-case-page .co-case-chapters .case-frame{border-width:1.5px!important}
+
+/* WorkAtlas visual QA: section boundaries use whitespace and color, not dark rules. */
+.co-case-page .co-case-intro,.co-case-page .co-case-decision{border-top:0!important;border-bottom:0!important}
+.co-case-page .co-case-chapters .chapter{border-top:0!important}
+.co-case-page .co-case-chapters .chapter+.chapter{border-top:1px solid rgba(48,20,72,.12)!important}
+.co-case-page .co-case-limitation{border-top:0!important}
+.co-case-page .co-case-chapters{border-top:0!important}
+@media(max-width:767px){.co-case-page .co-case-chapters .chapter+.chapter{border-top:1px solid rgba(48,20,72,.10)!important}}
