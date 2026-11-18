@@ -688,3 +688,49 @@ html:not([data-loto-theme="dark"]) .lottolov-page .lottolov-collection-index a[h
   .lottolov-page .lottolov-collection-index a,
   .lottolov-page .shop-destinations>div {animation:none!important;transition:none!important;transform:none!important;}
 }
+
+
+/* PR #12: mobile-only resume navigation refinement; preserve dossier and print. */
+@media screen and (max-width:700px){
+  .resume-shell .resume-bottom-bar{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    align-items:stretch;
+    justify-content:stretch;
+    gap:10px;
+    margin:22px auto 0;
+    padding:0 0 72px;
+    font-size:12px;
+  }
+  .resume-shell .resume-bottom-bar p{
+    grid-column:1/-1;
+    margin:0 0 8px;
+    padding:16px 18px;
+    font-size:14px;
+    line-height:1.55;
+    letter-spacing:normal;
+    border:1px solid currentColor;
+    border-radius:12px;
+  }
+  .resume-shell .resume-bottom-bar a{
+    display:flex;
+    min-width:0;
+    min-height:48px;
+    align-items:center;
+    justify-content:flex-start;
+    padding:12px 14px;
+    border:1px solid currentColor;
+    border-radius:10px;
+    font-size:12px;
+    line-height:1.35;
+    letter-spacing:.035em;
+    overflow-wrap:normal;
+    word-break:normal;
+    text-wrap:pretty;
+  }
+  .resume-shell .resume-bottom-bar a:nth-of-type(-n+2){grid-column:1/-1}
+  .resume-shell .resume-bottom-bar a:focus-visible{outline:3px solid currentColor;outline-offset:3px}
+}
+@media print{
+  .resume-shell .resume-bottom-bar{display:none!important}
+}
