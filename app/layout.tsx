@@ -1,3 +1,4 @@
+import "./illustrations.css";
 import type { Metadata } from "next";
 import "./globals.css";
 import ThemeToggle from "../components/theme-toggle";
