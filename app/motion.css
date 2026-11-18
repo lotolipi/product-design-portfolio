@@ -1,0 +1,49 @@
+/* Phase A: progressive editorial motion; uses existing typography and palette. */
+@media screen and (prefers-reduced-motion: no-preference) {
+  .co-site .loto-reveal-ready:not(.loto-is-visible) {
+    opacity: .55;
+    translate: 0 18px;
+  }
+  .co-site .loto-reveal-ready.loto-is-visible {
+    opacity: 1;
+    translate: 0 0;
+  }
+  .co-site .loto-reveal-ready {
+    transition: opacity 650ms cubic-bezier(.22,1,.36,1), translate 650ms cubic-bezier(.22,1,.36,1);
+  }
+  .co-site .co-hero-artwork {
+    animation: loto-art-enter 850ms 160ms cubic-bezier(.22,1,.36,1) both;
+  }
+  .co-site .co-hero-artwork svg > g:last-of-type {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: loto-clear-card 900ms 220ms cubic-bezier(.22,1,.36,1) both;
+  }
+  .co-site .co-hero-copy h1 em {
+    display: inline-block;
+    animation: loto-editorial-accent 760ms 260ms cubic-bezier(.22,1,.36,1) both;
+  }
+  @keyframes loto-art-enter {
+    from {opacity: .6; translate: 0 22px;}
+    to {opacity: 1; translate: 0 0;}
+  }
+  @keyframes loto-clear-card {
+    from {opacity: .7; translate: 0 12px;}
+    to {opacity: 1; translate: 0 0;}
+  }
+  @keyframes loto-editorial-accent {
+    from {opacity: .55; translate: 0 12px;}
+    to {opacity: 1; translate: 0 0;}
+  }
+}
+@media (prefers-reduced-motion: reduce), print {
+  .co-site .loto-reveal-ready,
+  .co-site .co-hero-artwork,
+  .co-site .co-hero-artwork svg > g:last-of-type,
+  .co-site .co-hero-copy h1 em {
+    animation: none !important;
+    transition: none !important;
+    translate: none !important;
+    opacity: 1 !important;
+  }
+}
