@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./motion.css";
 import ThemeToggle from "../components/theme-toggle";
 import GoogleAnalytics from "../components/google-analytics";
 
