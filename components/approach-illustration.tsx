@@ -2,9 +2,9 @@ import Image from "next/image";
 
 type Kind = "understand" | "connect" | "refine";
 const artwork: Record<Kind, { src: string; alt: string }> = {
-  understand: { src: "/illustrations/19-human-centered-design.webp", alt: "Human-centred design, expressed through connected abstract forms" },
-  connect: { src: "/illustrations/06-connected-orbits.webp", alt: "Interconnected colourful forms representing connected needs and systems" },
-  refine: { src: "/illustrations/20-continuous-improvement.webp", alt: "An evolving curved pathway representing continuous refinement" },
+  understand: { src: "/19-human-centered-design.webp", alt: "Human-centred design, expressed through connected abstract forms" },
+  connect: { src: "/06-connected-orbits.webp", alt: "Interconnected colourful forms representing connected needs and systems" },
+  refine: { src: "/20-continuous-improvement.webp", alt: "An evolving curved pathway representing continuous refinement" },
 };
 export default function ApproachIllustration({ kind }: { kind: Kind }) {
   const item = artwork[kind];
