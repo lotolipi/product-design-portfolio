@@ -15,7 +15,6 @@ export default function OpeningMotion() {
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
     if (reduced.matches) return;
 
-    hero.classList.add("loto-md02-hero-ready");
     let firstVisit = false;
     try {
       firstVisit = sessionStorage.getItem("loto-md02-intro-seen") !== "1";
@@ -24,6 +23,10 @@ export default function OpeningMotion() {
       // Storage may be disabled; motion must still be optional.
     }
 
+    // Synchronize the hero reveal with the first-visit curtain, rather than
+    // letting both animations compete for attention.
+    hero.classList.add("loto-md02-hero-ready");
+    if (firstVisit) hero.classList.add("loto-md02-first-visit");
     let timeout: ReturnType<typeof setTimeout> | undefined;
     if (firstVisit) {
       setShowIntro(true);
@@ -32,14 +35,14 @@ export default function OpeningMotion() {
     const onChange = () => {
       if (reduced.matches) {
         setShowIntro(false);
-        hero.classList.remove("loto-md02-hero-ready");
+        hero.classList.remove("loto-md02-hero-ready", "loto-md02-first-visit");
       }
     };
     reduced.addEventListener("change", onChange);
     return () => {
       if (timeout) clearTimeout(timeout);
       reduced.removeEventListener("change", onChange);
-      hero.classList.remove("loto-md02-hero-ready");
+      hero.classList.remove("loto-md02-hero-ready", "loto-md02-first-visit");
     };
   }, []);
 
