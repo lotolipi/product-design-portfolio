@@ -8,5 +8,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/work/workatlas`, changeFrequency: "monthly", priority: 0.9 },
     { url: `${baseUrl}/resume`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${baseUrl}/lottolov`, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${baseUrl}/privacy`, changeFrequency: "yearly", priority: 0.2 },
   ];
 }
