@@ -3,8 +3,9 @@
 import { useEffect, useState } from "react";
 
 /**
- * Motion Direction 02 — progressive, non-blocking visual introduction.
- * The original hero, navigation, links and content render immediately.
+ * Prototype 01 opening motion. Replay on every full page load during prototype
+ * review so the animation is discoverable on iPhone and desktop.
+ * Reduced-motion preference always takes precedence.
  */
 export default function OpeningMotion() {
   const [showIntro, setShowIntro] = useState(false);
@@ -15,35 +16,19 @@ export default function OpeningMotion() {
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
     if (reduced.matches) return;
 
-    // ?replayMotion=1 allows deliberate QA replay without clearing session storage.
-    // Reduced-motion preferences always take precedence.
-    const replayRequested = new URLSearchParams(window.location.search).get("replayMotion") === "1";
-    let firstVisit = replayRequested;
-    try {
-      firstVisit = replayRequested || sessionStorage.getItem("loto-md02-intro-seen") !== "1";
-      if (firstVisit) sessionStorage.setItem("loto-md02-intro-seen", "1");
-    } catch {
-      // Storage may be disabled; motion must still be optional.
-    }
-
-    // Synchronize the hero reveal with the first-visit curtain, rather than
-    // letting both animations compete for attention.
-    hero.classList.add("loto-md02-hero-ready");
-    if (firstVisit) hero.classList.add("loto-md02-first-visit");
-    let timeout: ReturnType<typeof setTimeout> | undefined;
-    if (firstVisit) {
-      setShowIntro(true);
-      timeout = setTimeout(() => setShowIntro(false), 1450);
-    }
+    hero.classList.add("loto-md02-hero-ready", "loto-md02-first-visit");
+    setShowIntro(true);
+    const timeout = window.setTimeout(() => setShowIntro(false), 1450);
     const onChange = () => {
       if (reduced.matches) {
+        window.clearTimeout(timeout);
         setShowIntro(false);
         hero.classList.remove("loto-md02-hero-ready", "loto-md02-first-visit");
       }
     };
     reduced.addEventListener("change", onChange);
     return () => {
-      if (timeout) clearTimeout(timeout);
+      window.clearTimeout(timeout);
       reduced.removeEventListener("change", onChange);
       hero.classList.remove("loto-md02-hero-ready", "loto-md02-first-visit");
     };
