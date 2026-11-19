@@ -12,6 +12,23 @@
   .lottolov-page .verified-product:hover,.lottolov-page .verified-product:focus-visible,.lottolov-page .lottolov-collection-index a:hover,.lottolov-page .lottolov-collection-index a:focus-visible { transform:translateY(-4px); }
   .co-site .co-contact a,.co-site .co-contact button,.co-resume-cta { transition:transform .3s ease; }
   .co-site .co-contact a:hover,.co-site .co-contact button:hover,.co-resume-cta:hover { transform:translateY(-2px); }
+  /* A shared motion rhythm links the six WorkAtlas chapters. */
+  .co-case-page .chapter .chapter-num { transition:letter-spacing .45s ease; }
+  .co-case-page .chapter:hover .chapter-num { letter-spacing:.12em; }
+  .co-case-page .chapter .frame-link { overflow:hidden; max-width:100%; }
+  /* Resume moves like a restrained editorial document; print remains static. */
+  .resume-shell .resume-bottom-bar a { transition:transform .3s ease; }
+  .resume-shell .resume-bottom-bar a:hover,.resume-shell .resume-bottom-bar a:focus-visible { transform:translateY(-2px); }
+  /* Contact closing choreography is scroll-triggered, never blocking submission. */
+  .loto-phase2 .co-site .co-contact > .co-kicker,
+  .loto-phase2 .co-site .co-contact > h2,
+  .loto-phase2 .co-site .co-contact form,
+  .loto-phase2 .resume-shell .resume-intro,
+  .loto-phase2 .resume-shell .resume-job,
+  .loto-phase2 .resume-shell .resume-bottom { opacity:0;transform:translateY(15px);transition:opacity .6s ease,transform .6s ease; }
+  .loto-phase2 .co-site .co-contact > .loto-p2-visible,
+  .loto-phase2 .resume-shell .loto-p2-visible { opacity:1;transform:none; }
+  .loto-phase2 .resume-shell .resume-job:nth-child(2n) { transition-delay:90ms; }
   .loto-phase2 .co-case-page .chapter { opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease; }
   .loto-phase2 .co-case-page .chapter.loto-p2-visible { opacity:1;transform:none; }
   .loto-phase2 .co-site .co-principle { opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease; }
@@ -23,3 +40,5 @@
 @media (prefers-reduced-motion:reduce) {
  .co-site .co-feature,.co-site .co-feature .co-real-work-image,.co-site .co-principle,.co-case-page .chapter,.co-case-page .chapter .case-frame,.lottolov-page .verified-product,.lottolov-page .lottolov-collection-index a,.co-site .co-contact a,.co-site .co-contact button,.co-resume-cta { animation:none!important;transition:none!important;transform:none!important;opacity:1!important; }
 }
+
+@media (prefers-reduced-motion:reduce),print { .resume-shell .resume-intro,.resume-shell .resume-job,.resume-shell .resume-bottom,.co-site .co-contact > .co-kicker,.co-site .co-contact > h2,.co-site .co-contact form,.resume-shell .resume-bottom-bar a { opacity:1!important;transform:none!important;transition:none!important;animation:none!important; } }
