@@ -41,3 +41,83 @@
 
 /* Safety: contact controls must remain visible and usable on iOS, at any scroll position. */
 .co-site .co-contact .co-mail-layout,.co-site .co-contact .co-mail-form,.co-site .co-contact .co-mail-aside {opacity:1!important;visibility:visible!important;transform:none!important;translate:none!important;}
+
+/* Contact layout correction — natural document flow, no phantom viewport space. */
+.co-site .co-contact.co-contact-expanded {
+  display:block;
+  height:auto;
+  min-height:0;
+  max-height:none;
+  overflow:visible;
+  padding-block:clamp(56px,7vw,100px);
+}
+.co-site .co-contact .co-mail-layout {
+  display:grid;
+  grid-template-columns:minmax(0,0.85fr) minmax(0,1.15fr);
+  align-items:start;
+  gap:clamp(24px,5vw,72px);
+  width:100%;
+  height:auto;
+  min-height:0;
+  max-height:none;
+}
+.co-site .co-contact .co-mail-aside,
+.co-site .co-contact .co-mail-form {
+  position:static;
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+  width:100%;
+  height:auto;
+  min-height:0;
+  max-height:none;
+}
+.co-site .co-contact .co-mail-form { gap:19px; }
+.co-site .co-contact .co-mail-form .co-form-grid { min-width:0; }
+@media(max-width:767px) {
+  .co-site .co-contact.co-contact-expanded {
+    padding:56px 5% 64px;
+  }
+  .co-site .co-contact.co-contact-expanded h2 {
+    font-size:clamp(44px,10vw,72px);
+    line-height:1.02;
+    margin:22px 0 30px;
+    overflow-wrap:anywhere;
+  }
+  .co-site .co-contact .co-mail-layout {
+    grid-template-columns:minmax(0,1fr);
+    gap:28px;
+    padding-top:26px;
+  }
+  .co-site .co-contact .co-mail-aside h3 {
+    font-size:clamp(30px,8vw,44px);
+    line-height:1.1;
+    margin:14px 0 18px;
+  }
+  .co-site .co-contact .co-mail-aside>p {
+    font-size:16px;
+    line-height:1.55;
+    max-width:none;
+  }
+  .co-site .co-contact .co-mail-aside .co-mail-disclaimer {
+    margin:18px 0 0;
+    max-width:none;
+  }
+  .co-site .co-contact .co-mail-form {
+    padding:clamp(18px,5vw,26px);
+    border-radius:18px;
+    overflow:visible;
+  }
+  .co-site .co-contact .co-mail-form .co-form-grid {
+    display:grid;
+    grid-template-columns:minmax(0,1fr);
+    gap:16px;
+  }
+  .co-site .co-contact .co-mail-form input,
+  .co-site .co-contact .co-mail-form textarea {
+    box-sizing:border-box;
+    max-width:100%;
+    font-size:16px;
+  }
+  .co-site .co-contact .co-mail-submit { min-height:52px; }
+}
