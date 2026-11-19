@@ -1,0 +1,139 @@
+/* Motion Direction 02 / Prototype 01: original brand colours, existing artwork. */
+@media screen and (prefers-reduced-motion: no-preference) {
+  .loto-md02-intro {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: grid;
+    place-items: center;
+    pointer-events: none;
+    background: #211b35;
+    color: #f8f5eb;
+    animation: md02-curtain 1450ms cubic-bezier(.22,1,.36,1) both;
+  }
+  .loto-md02-intro-scene {
+    position: relative;
+    width: min(340px, 72vw);
+    height: 210px;
+  }
+  .loto-md02-piece {
+    position: absolute;
+    display: block;
+    border-radius: 14px;
+    box-shadow: 0 14px 36px rgba(0,0,0,.18);
+  }
+  .loto-md02-piece-input {
+    top: 24px;
+    left: 32px;
+    width: 146px;
+    height: 114px;
+    padding: 22px 16px;
+    background: #d9c8ff;
+    transform: rotate(-12deg);
+    animation: md02-input 1100ms cubic-bezier(.22,1,.36,1) both;
+  }
+  .loto-md02-piece-input i,
+  .loto-md02-piece-clarity i {
+    display: block;
+    width: 78%;
+    height: 8px;
+    margin: 0 0 10px;
+    border-radius: 10px;
+    background: #301448;
+  }
+  .loto-md02-piece-input i:nth-child(2) {width: 53%;opacity: .65;}
+  .loto-md02-piece-input i:nth-child(3) {width: 67%;opacity: .4;}
+  .loto-md02-piece-clarity {
+    top: 52px;
+    right: 22px;
+    width: 146px;
+    height: 114px;
+    padding: 22px 16px;
+    background: #c4ed38;
+    transform: rotate(7deg);
+    animation: md02-clarity 1100ms cubic-bezier(.22,1,.36,1) both;
+  }
+  .loto-md02-piece-clarity i {background: #173cde;}
+  .loto-md02-piece-clarity i:nth-child(2) {width: 62%;}
+  .loto-md02-piece-clarity i:nth-child(3) {width: 90%;}
+  .loto-md02-piece-spark {
+    top: 3px;
+    right: 24px;
+    color: #e5008a;
+    font-size: 55px;
+    box-shadow: none;
+    animation: md02-spark 1050ms 120ms cubic-bezier(.22,1,.36,1) both;
+  }
+  .loto-md02-intro-label {
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .19em;
+    animation: md02-label 900ms 200ms ease both;
+  }
+  .co-hero.loto-md02-hero-ready .co-hero-copy .co-kicker,
+  .co-hero.loto-md02-hero-ready .co-hero-copy h1,
+  .co-hero.loto-md02-hero-ready .co-hero-copy p,
+  .co-hero.loto-md02-hero-ready .co-hero-copy .co-actions {
+    animation: md02-rise 780ms cubic-bezier(.22,1,.36,1) both;
+  }
+  .co-hero.loto-md02-hero-ready .co-hero-copy h1 {animation-delay: 110ms;}
+  .co-hero.loto-md02-hero-ready .co-hero-copy p {animation-delay: 240ms;}
+  .co-hero.loto-md02-hero-ready .co-hero-copy .co-actions {animation-delay: 350ms;}
+  .co-hero.loto-md02-hero-ready .co-hero-copy h1 em {
+    display: inline-block;
+    animation: md02-accent 850ms 300ms cubic-bezier(.22,1,.36,1) both;
+  }
+  .co-hero.loto-md02-hero-ready .co-hero-artwork svg > g {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: md02-art 1050ms cubic-bezier(.22,1,.36,1) both;
+  }
+  .co-hero.loto-md02-hero-ready .co-hero-artwork svg > g:nth-of-type(2) {animation-delay: 160ms;}
+  .co-hero.loto-md02-hero-ready .co-hero-artwork svg > g:nth-of-type(3) {animation-delay: 290ms;}
+  .co-hero.loto-md02-hero-ready .co-hero-artwork svg > g:nth-of-type(4) {animation-delay: 400ms;}
+  @keyframes md02-curtain {
+    0%,62% {opacity: 1;}
+    100% {opacity: 0;visibility: hidden;}
+  }
+  @keyframes md02-input {
+    from {opacity: 0;translate: -80px -28px;rotate: -15deg;}
+    to {opacity: 1;translate: 0 0;rotate: 0deg;}
+  }
+  @keyframes md02-clarity {
+    from {opacity: 0;translate: 90px 35px;rotate: 16deg;}
+    to {opacity: 1;translate: 0 0;rotate: 0deg;}
+  }
+  @keyframes md02-spark {
+    from {opacity: 0;scale: .3;rotate: -90deg;}
+    to {opacity: 1;scale: 1;rotate: 0deg;}
+  }
+  @keyframes md02-label {
+    from {opacity: 0;translate: 0 12px;}
+    to {opacity: 1;translate: 0 0;}
+  }
+  @keyframes md02-rise {
+    from {opacity: .25;translate: 0 30px;}
+    to {opacity: 1;translate: 0 0;}
+  }
+  @keyframes md02-accent {
+    from {opacity: .35;translate: 0 16px;rotate: -3deg;}
+    to {opacity: 1;translate: 0 0;rotate: 0deg;}
+  }
+  @keyframes md02-art {
+    from {opacity: .35;translate: 0 28px;scale: .95;}
+    to {opacity: 1;translate: 0 0;scale: 1;}
+  }
+}
+@media (prefers-reduced-motion: reduce), print {
+  .loto-md02-intro {display: none!important;}
+  .co-hero.loto-md02-hero-ready *,
+  .co-hero.loto-md02-hero-ready svg > g {
+    animation: none!important;
+    transition: none!important;
+  }
+}
