@@ -15,9 +15,12 @@ export default function OpeningMotion() {
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
     if (reduced.matches) return;
 
-    let firstVisit = false;
+    // ?replayMotion=1 allows deliberate QA replay without clearing session storage.
+    // Reduced-motion preferences always take precedence.
+    const replayRequested = new URLSearchParams(window.location.search).get("replayMotion") === "1";
+    let firstVisit = replayRequested;
     try {
-      firstVisit = sessionStorage.getItem("loto-md02-intro-seen") !== "1";
+      firstVisit = replayRequested || sessionStorage.getItem("loto-md02-intro-seen") !== "1";
       if (firstVisit) sessionStorage.setItem("loto-md02-intro-seen", "1");
     } catch {
       // Storage may be disabled; motion must still be optional.
