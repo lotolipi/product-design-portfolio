@@ -23,7 +23,7 @@ export default function ThemeToggle() {
   }, []);
 
   useEffect(() => {
-    const target = document.querySelector<HTMLElement>(".co-site > .co-footer, .co-case-page > footer, .lottolov-page > footer, .resume-shell footer, main > footer, body > footer");
+    const target = document.querySelector<HTMLElement>(".co-site > .co-footer, .co-case-page > footer, .lottolov-page > footer, .resume-shell .resume-foot, main > footer, body > footer");
     setFooter(target);
   }, [pathname]);
 
