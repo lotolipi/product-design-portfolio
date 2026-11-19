@@ -12,12 +12,25 @@ export default function OpeningMotion() {
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
     if (reduced.matches) return;
 
-    // Storage-blocked browsers skip the intro rather than replaying indefinitely.
+    // A session cookie supplements sessionStorage for mobile in-app browsers
+    // that recreate a page's sessionStorage context on reload.
+    // Neither marker has a fixed expiry: a new browser session may replay the intro.
+    const sessionKey = "loto-md02-intro-seen";
     let firstVisit = false;
     try {
-      firstVisit = window.sessionStorage.getItem("loto-md02-intro-seen") !== "1";
-      if (firstVisit) window.sessionStorage.setItem("loto-md02-intro-seen", "1");
-    } catch { /* Optional motion must never depend on storage. */ }
+      const seenInStorage = window.sessionStorage.getItem(sessionKey) === "1";
+      const seenInCookie = document.cookie.split("; ").some(part => part === sessionKey + "=1");
+      firstVisit = !seenInStorage && !seenInCookie;
+      window.sessionStorage.setItem(sessionKey, "1");
+      if (window.location.protocol === "https:") {
+        document.cookie = sessionKey + "=1; Path=/; SameSite=Lax; Secure";
+      } else {
+        document.cookie = sessionKey + "=1; Path=/; SameSite=Lax";
+      }
+    } catch {
+      // Optional motion must never replay endlessly if storage is blocked.
+      firstVisit = false;
+    }
     hero.classList.add("loto-md02-hero-ready");
     if (firstVisit) {
       hero.classList.add("loto-md02-first-visit");
