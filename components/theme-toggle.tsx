@@ -5,8 +5,7 @@ import { usePathname } from "next/navigation";
 
 type Theme = "bright" | "dark";
 
-/* Keep the theme control in the page footer rather than floating over content.
-   A fixed-position fallback remains only on pages without a footer. */
+/* Place the theme control in the page footer; never overlay content. */
 export default function ThemeToggle() {
   const pathname = usePathname();
   const [theme, setTheme] = useState<Theme>("bright");
@@ -47,5 +46,7 @@ export default function ThemeToggle() {
     <span className="loto-theme-toggle-track" aria-hidden="true"><span className="loto-theme-toggle-knob" /></span>
   </button>;
 
-  return footer ? createPortal(control, footer) : control;
+  // Do not flash a floating control during hydration or route transitions.
+  // Pages without a footer can provide an explicit footer before enabling this control.
+  return footer ? createPortal(control, footer) : null;
 }
