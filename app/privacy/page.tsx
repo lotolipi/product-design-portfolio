@@ -6,6 +6,12 @@ export const metadata: Metadata = {
   title: "Privacy & Site Information — Lotolipi",
   description: "How Lotolipi handles contact messages, local preferences, external links and privacy requests.",
   alternates: { canonical: "/privacy" },
+  openGraph: {
+    title: "Privacy & Site Information — Lotolipi",
+    description: "How Lotolipi handles contact messages, local preferences, external links and privacy requests.",
+    url: "/privacy",
+    type: "website",
+  },
 };
 
 export default function PrivacyPage() {
