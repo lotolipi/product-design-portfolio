@@ -126,7 +126,7 @@
 .co-site .co-footer > .loto-theme-toggle,
 .co-case-page footer > .loto-theme-toggle,
 .lottolov-page footer > .loto-theme-toggle,
-.resume-shell footer > .loto-theme-toggle,
+.resume-shell .resume-foot > .loto-theme-toggle,
 main > footer > .loto-theme-toggle,
 body > footer > .loto-theme-toggle {
   position:static;
