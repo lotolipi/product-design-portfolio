@@ -8,7 +8,7 @@ export default function PhaseTwoMotion() {
   const media=window.matchMedia("(prefers-reduced-motion: reduce)");
   if(media.matches || !("IntersectionObserver" in window))return;
   const targets=Array.from(document.querySelectorAll<HTMLElement>(
-   ".co-case-page .chapter, .co-site .co-principle, .resume-shell .resume-intro, .resume-shell .resume-job, .resume-shell .resume-bottom, .co-site .co-contact > .co-kicker, .co-site .co-contact > h2, .co-site .co-contact form"
+   ".co-case-page .chapter, .co-site .co-principle, .resume-shell .resume-intro, .resume-shell .resume-job, .resume-shell .resume-bottom"
   ));
   if(!targets.length)return;
   // All content remains visible until enhancement is activated.
