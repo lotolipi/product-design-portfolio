@@ -13,8 +13,10 @@
   }
   .loto-md02-intro-scene {
     position: relative;
-    width: min(340px, 72vw);
+    width: min(340px, 88vw);
     height: 210px;
+    transform: scale(min(1, calc(88vw / 340px)));
+    transform-origin: center;
   }
   .loto-md02-piece {
     position: absolute;
@@ -96,6 +98,19 @@
   .co-hero.loto-md02-hero-ready .co-hero-artwork svg > g:nth-of-type(2) {animation-delay: 160ms;}
   .co-hero.loto-md02-hero-ready .co-hero-artwork svg > g:nth-of-type(3) {animation-delay: 290ms;}
   .co-hero.loto-md02-hero-ready .co-hero-artwork svg > g:nth-of-type(4) {animation-delay: 400ms;}
+  /* On a first visit, let the opening scene resolve before the hero appears. */
+  .co-hero.loto-md02-first-visit .co-hero-copy .co-kicker {animation-delay: 950ms;}
+  .co-hero.loto-md02-first-visit .co-hero-copy h1 {animation-delay: 1060ms;}
+  .co-hero.loto-md02-first-visit .co-hero-copy p {animation-delay: 1190ms;}
+  .co-hero.loto-md02-first-visit .co-hero-copy .co-actions {animation-delay: 1300ms;}
+  .co-hero.loto-md02-first-visit .co-hero-copy h1 em {animation-delay: 1250ms;}
+  .co-hero.loto-md02-first-visit .co-hero-artwork svg > g {animation-delay: 950ms;}
+  .co-hero.loto-md02-first-visit .co-hero-artwork svg > g:nth-of-type(2) {animation-delay: 1110ms;}
+  .co-hero.loto-md02-first-visit .co-hero-artwork svg > g:nth-of-type(3) {animation-delay: 1240ms;}
+  .co-hero.loto-md02-first-visit .co-hero-artwork svg > g:nth-of-type(4) {animation-delay: 1350ms;}
+  @media (max-width: 420px) {
+    .loto-md02-intro-scene {transform: scale(.78);}
+  }
   @keyframes md02-curtain {
     0%,62% {opacity: 1;}
     100% {opacity: 0;visibility: hidden;}
