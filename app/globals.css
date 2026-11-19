@@ -345,7 +345,8 @@ html:not([data-loto-theme="dark"]) .co-site .co-approach .co-principle{backgroun
 html[data-loto-theme="dark"] .co-site .co-approach-art line,
 html[data-loto-theme="dark"] .co-site .co-approach-art path[stroke="#301448"],
 html[data-loto-theme="dark"] .co-site .co-approach-art circle[stroke="#301448"]{stroke:#D8C8F5!important}
-html[data-loto-theme="dark"] .co-site .co-approach-art [fill="#301448"]{fill:#D8C8F5}
+/* Preserve the original artwork palette in dark mode: only the deep-purple fills become near-black. */
+html[data-loto-theme="dark"] .co-site .co-approach-art [fill="#301448"]{fill:#101014}
 html[data-loto-theme="dark"] .co-site .co-about-facts>div{border-top-color:#777080!important}
 html[data-loto-theme="dark"] .co-site .co-about-facts span{color:#C7B5FF!important}
 html[data-loto-theme="dark"] .co-site .co-about-facts small{color:#C1BCCB!important}
