@@ -90,9 +90,9 @@
     display: inline-block;
     animation: md02-accent 850ms 300ms cubic-bezier(.22,1,.36,1) both;
   }
+  /* Animate opacity only: transform animation would overwrite SVG transform attributes
+     and displace the original illustrated panels on mobile Safari. */
   .co-hero.loto-md02-hero-ready .co-hero-artwork svg > g {
-    transform-box: fill-box;
-    transform-origin: center;
     animation: md02-art 1050ms cubic-bezier(.22,1,.36,1) both;
   }
   .co-hero.loto-md02-hero-ready .co-hero-artwork svg > g:nth-of-type(2) {animation-delay: 160ms;}
@@ -140,8 +140,8 @@
     to {opacity: 1;translate: 0 0;rotate: 0deg;}
   }
   @keyframes md02-art {
-    from {opacity: .35;translate: 0 28px;scale: .95;}
-    to {opacity: 1;translate: 0 0;scale: 1;}
+    from {opacity: .15;}
+    to {opacity: 1;}
   }
 }
 @media (prefers-reduced-motion: reduce), print {
