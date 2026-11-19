@@ -121,3 +121,36 @@
   }
   .co-site .co-contact .co-mail-submit { min-height:52px; }
 }
+
+/* Theme control: an intentional footer utility, not a viewport overlay. */
+.co-site .co-footer > .loto-theme-toggle,
+.co-case-page footer > .loto-theme-toggle,
+.lottolov-page footer > .loto-theme-toggle,
+.resume-shell footer > .loto-theme-toggle,
+main > footer > .loto-theme-toggle,
+body > footer > .loto-theme-toggle {
+  position:static;
+  inset:auto;
+  z-index:auto;
+  flex:0 0 auto;
+  align-self:center;
+  width:max-content;
+  max-width:100%;
+  min-height:44px;
+  margin:0;
+  padding:10px 12px 10px 16px;
+  box-shadow:none;
+}
+.co-site .co-footer > .loto-theme-toggle:focus-visible,
+.co-case-page footer > .loto-theme-toggle:focus-visible,
+.lottolov-page footer > .loto-theme-toggle:focus-visible {
+  outline-offset:4px;
+}
+@media(max-width:767px) {
+  .co-site .co-footer > .loto-theme-toggle {
+    justify-self:start;
+    align-self:start;
+    min-height:44px;
+    margin-top:8px;
+  }
+}
