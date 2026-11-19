@@ -152,3 +152,13 @@
     transition: none!important;
   }
 }
+
+/* Consolidated from PR #14: editorial scroll reveals only; existing hero choreography owns the entrance. */
+@media screen and (prefers-reduced-motion: no-preference) {
+  .co-site .loto-reveal-ready:not(.loto-is-visible) { opacity: .55; translate: 0 18px; }
+  .co-site .loto-reveal-ready.loto-is-visible { opacity: 1; translate: 0 0; }
+  .co-site .loto-reveal-ready { transition: opacity 650ms cubic-bezier(.22,1,.36,1), translate 650ms cubic-bezier(.22,1,.36,1); }
+}
+@media (prefers-reduced-motion: reduce), print {
+  .co-site .loto-reveal-ready { opacity: 1!important; translate: none!important; transition: none!important; }
+}
