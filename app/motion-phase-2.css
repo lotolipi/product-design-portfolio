@@ -19,14 +19,10 @@
   /* Resume moves like a restrained editorial document; print remains static. */
   .resume-shell .resume-bottom-bar a { transition:transform .3s ease; }
   .resume-shell .resume-bottom-bar a:hover,.resume-shell .resume-bottom-bar a:focus-visible { transform:translateY(-2px); }
-  /* Contact closing choreography is scroll-triggered, never blocking submission. */
-  .loto-phase2 .co-site .co-contact > .co-kicker,
-  .loto-phase2 .co-site .co-contact > h2,
-  .loto-phase2 .co-site .co-contact form,
+  /* Contact form is never opacity-hidden: iOS scroll/viewport can skip intersection callbacks. */
   .loto-phase2 .resume-shell .resume-intro,
   .loto-phase2 .resume-shell .resume-job,
   .loto-phase2 .resume-shell .resume-bottom { opacity:0;transform:translateY(15px);transition:opacity .6s ease,transform .6s ease; }
-  .loto-phase2 .co-site .co-contact > .loto-p2-visible,
   .loto-phase2 .resume-shell .loto-p2-visible { opacity:1;transform:none; }
   .loto-phase2 .resume-shell .resume-job:nth-child(2n) { transition-delay:90ms; }
   .loto-phase2 .co-case-page .chapter { opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease; }
@@ -42,3 +38,6 @@
 }
 
 @media (prefers-reduced-motion:reduce),print { .resume-shell .resume-intro,.resume-shell .resume-job,.resume-shell .resume-bottom,.co-site .co-contact > .co-kicker,.co-site .co-contact > h2,.co-site .co-contact form,.resume-shell .resume-bottom-bar a { opacity:1!important;transform:none!important;transition:none!important;animation:none!important; } }
+
+/* Safety: contact controls must remain visible and usable on iOS, at any scroll position. */
+.co-site .co-contact .co-mail-layout,.co-site .co-contact .co-mail-form,.co-site .co-contact .co-mail-aside {opacity:1!important;visibility:visible!important;transform:none!important;translate:none!important;}
