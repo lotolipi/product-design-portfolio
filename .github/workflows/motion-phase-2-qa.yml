@@ -21,8 +21,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-          cache: npm
-      - run: npm ci
+      # This repository does not commit a package-lock.json.
       - run: npm install --no-save @playwright/test
       - run: npx playwright install --with-deps chromium
       - run: npx playwright test --config=playwright.config.mjs
