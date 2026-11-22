@@ -40,9 +40,6 @@ jobs:
           cat /tmp/lotolipi-next.log
           exit 1
       - name: Audit five routes, both themes, mobile and desktop
-        # Temporary: retain visible failure and uploaded findings without blocking releases.
-        # Remove after diagnosing and fixing the repeated accessibility failures.
-        continue-on-error: true
         run: node scripts/accessibility-audit.mjs
       - name: Audit GA4 consent, persistence and preview isolation
         run: node scripts/analytics-qa.mjs
