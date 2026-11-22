@@ -17,7 +17,10 @@ async function scenario(name, run, production = true) {
           const response = await route.fetch({ url });
           await route.fulfill({ response });
         } catch (error) {
-          await route.abort();
+          // Navigation/teardown can close a request while route.fetch is pending.
+          // Do not turn an already-closed browser route into an uncaught rejection.
+          try { await route.abort(); } catch { /* route already closed */ }
+          if (!context.pages().length || context.pages().every(page => page.isClosed())) return;
           throw error;
         }
       });
@@ -33,6 +36,7 @@ async function scenario(name, run, production = true) {
     failed = true;
     checks.push({ name, pass: false, error: String(error), gaRequests });
   } finally {
+    await context.unrouteAll({ behavior: "ignoreErrors" });
     await context.close();
   }
 }
