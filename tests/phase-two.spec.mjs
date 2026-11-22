@@ -45,3 +45,16 @@ test('keyboard can operate theme toggle', async ({ page }) => {
   await page.keyboard.press('Enter');
   await expect(page.locator('html')).toHaveAttribute('data-loto-theme', 'dark');
 });
+
+test('runtime reduced-motion changes disable and restore Phase 2 enhancement', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await page.goto('/work/workatlas');
+  const root = page.locator('html');
+  await expect(root).toHaveClass(/loto-phase2/);
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await expect(root).not.toHaveClass(/loto-phase2/);
+  await expect(page.locator('.co-case-page .chapter').first()).toBeVisible();
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await expect(root).toHaveClass(/loto-phase2/);
+  await expect(page.locator('.co-case-page .chapter').first()).toBeVisible();
+});
