@@ -38,6 +38,11 @@ try {
             const mainFocused = await page.locator("main#main-content").evaluate(el => el === document.activeElement);
             const reducedScroll = await page.evaluate(() => getComputedStyle(document.documentElement).scrollBehavior === "auto");
             const toggle = page.locator("button.loto-theme-toggle");
+            // Privacy has its own navigation and intentionally no theme toggle.
+            // All other routes must still expose the keyboard-operable control.
+            if (route === "/privacy" && await toggle.count() === 0) {
+              keyboard = { skipFocused, skipVisible, mainFocused, reducedScroll, themeToggleNotApplicable: true };
+            } else {
             await toggle.focus();
             const toggleFocused = await toggle.evaluate(el => el === document.activeElement);
             const toggleFocusIndicator = await toggle.evaluate(el => {
@@ -50,6 +55,7 @@ try {
             const afterTheme = await page.locator("html").getAttribute("data-loto-theme");
             const storedTheme = await page.evaluate(() => localStorage.getItem("lotolipi-theme"));
             keyboard = { skipFocused, skipVisible, mainFocused, reducedScroll, toggleFocused, toggleFocusIndicator, themeKeyboardOperable: afterTheme === expectedTheme, themePersisted: storedTheme === expectedTheme };
+            }
             if (Object.values(keyboard).some(value => value !== true)) failed = true;
           }
           const entry = { route, theme, viewport: viewport.name, violations, skip, main, overflow, keyboard };
