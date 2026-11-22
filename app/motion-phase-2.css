@@ -1,0 +1,155 @@
+/* Lotolipi Motion Phase 2 — progressive enhancement only. No palette, artwork or layout changes. */
+@media (prefers-reduced-motion: no-preference) {
+  .co-site .co-feature { transition: border-radius .65s cubic-bezier(.2,.8,.2,1), box-shadow .65s ease, transform .65s cubic-bezier(.2,.8,.2,1); transform-origin:center center; }
+  .co-site .co-feature:hover, .co-site .co-feature:focus-visible { transform:scale(1.012); box-shadow:0 22px 65px #211b351a; }
+  .co-site .co-feature .co-real-work-image { transition:transform .85s cubic-bezier(.2,.8,.2,1); }
+  .co-site .co-feature:hover .co-real-work-image, .co-site .co-feature:focus-visible .co-real-work-image { transform:scale(1.025); }
+  .co-site .co-principle { transition:transform .45s ease; }
+  .co-site .co-principle:hover { transform:translateY(-5px); }
+  .co-case-page .chapter .case-frame { transition:transform .65s cubic-bezier(.2,.8,.2,1),box-shadow .65s ease; }
+  .co-case-page .chapter .frame-link:hover .case-frame,.co-case-page .chapter .frame-link:focus-visible .case-frame { transform:scale(1.012);box-shadow:0 20px 48px #211b3520; }
+  .lottolov-page .verified-product,.lottolov-page .lottolov-collection-index a { transition:transform .35s ease; }
+  .lottolov-page .verified-product:hover,.lottolov-page .verified-product:focus-visible,.lottolov-page .lottolov-collection-index a:hover,.lottolov-page .lottolov-collection-index a:focus-visible { transform:translateY(-4px); }
+  .co-site .co-contact a,.co-site .co-contact button,.co-resume-cta { transition:transform .3s ease; }
+  .co-site .co-contact a:hover,.co-site .co-contact button:hover,.co-resume-cta:hover { transform:translateY(-2px); }
+  /* A shared motion rhythm links the six WorkAtlas chapters. */
+  .co-case-page .chapter .chapter-num { transition:letter-spacing .45s ease; }
+  .co-case-page .chapter:hover .chapter-num { letter-spacing:.12em; }
+  .co-case-page .chapter .frame-link { overflow:hidden; max-width:100%; }
+  /* Resume moves like a restrained editorial document; print remains static. */
+  .resume-shell .resume-bottom-bar a { transition:transform .3s ease; }
+  .resume-shell .resume-bottom-bar a:hover,.resume-shell .resume-bottom-bar a:focus-visible { transform:translateY(-2px); }
+  /* Contact form is never opacity-hidden: iOS scroll/viewport can skip intersection callbacks. */
+  /* Reveal as a visual enhancement; never hide essential content while waiting for an observer. */
+  @keyframes loto-p2-arrive { from { opacity:.75;transform:translateY(12px); } to { opacity:1;transform:none; } }
+  .loto-phase2 .resume-shell .resume-intro.loto-p2-visible,
+  .loto-phase2 .resume-shell .resume-job.loto-p2-visible,
+  .loto-phase2 .resume-shell .resume-bottom.loto-p2-visible { animation:loto-p2-arrive .55s ease both; }
+  .loto-phase2 .resume-shell .resume-job:nth-child(2n) { transition-delay:90ms; }
+  .loto-phase2 .co-case-page .chapter.loto-p2-visible { animation:loto-p2-arrive .65s ease both; }
+  .loto-phase2 .co-site .co-principle.loto-p2-visible { animation:loto-p2-arrive .55s ease both; }
+  .loto-phase2 .co-site .co-principle:nth-child(2) { transition-delay:110ms; }
+  .loto-phase2 .co-site .co-principle:nth-child(3) { transition-delay:220ms; }
+}
+@media (max-width:767px) { .co-site .co-feature:hover,.co-site .co-feature:focus-visible {transform:none;} }
+@media (prefers-reduced-motion:reduce) {
+ .co-site .co-feature,.co-site .co-feature .co-real-work-image,.co-site .co-principle,.co-case-page .chapter,.co-case-page .chapter .case-frame,.lottolov-page .verified-product,.lottolov-page .lottolov-collection-index a,.co-site .co-contact a,.co-site .co-contact button,.co-resume-cta { animation:none!important;transition:none!important;transform:none!important;opacity:1!important; }
+}
+
+@media (prefers-reduced-motion:reduce),print { .resume-shell .resume-intro,.resume-shell .resume-job,.resume-shell .resume-bottom,.co-site .co-contact > .co-kicker,.co-site .co-contact > h2,.co-site .co-contact form,.resume-shell .resume-bottom-bar a { opacity:1!important;transform:none!important;transition:none!important;animation:none!important; } }
+
+/* Safety: contact controls must remain visible and usable on iOS, at any scroll position. */
+.co-site .co-contact .co-mail-layout,.co-site .co-contact .co-mail-form,.co-site .co-contact .co-mail-aside {opacity:1!important;visibility:visible!important;transform:none!important;translate:none!important;}
+
+/* Contact layout correction — natural document flow, no phantom viewport space. */
+.co-site .co-contact.co-contact-expanded {
+  display:block;
+  height:auto;
+  min-height:0;
+  max-height:none;
+  overflow:visible;
+  padding-block:clamp(56px,7vw,100px);
+}
+.co-site .co-contact .co-mail-layout {
+  display:grid;
+  grid-template-columns:minmax(0,0.85fr) minmax(0,1.15fr);
+  align-items:start;
+  gap:clamp(24px,5vw,72px);
+  width:100%;
+  height:auto;
+  min-height:0;
+  max-height:none;
+}
+.co-site .co-contact .co-mail-aside,
+.co-site .co-contact .co-mail-form {
+  position:static;
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+  width:100%;
+  height:auto;
+  min-height:0;
+  max-height:none;
+}
+.co-site .co-contact .co-mail-form { gap:19px; }
+.co-site .co-contact .co-mail-form .co-form-grid { min-width:0; }
+@media(max-width:767px) {
+  .co-site .co-contact.co-contact-expanded {
+    padding:56px 5% 64px;
+  }
+  .co-site .co-contact.co-contact-expanded h2 {
+    font-size:clamp(44px,10vw,72px);
+    line-height:1.02;
+    margin:22px 0 30px;
+    overflow-wrap:anywhere;
+  }
+  .co-site .co-contact .co-mail-layout {
+    grid-template-columns:minmax(0,1fr);
+    gap:28px;
+    padding-top:26px;
+  }
+  .co-site .co-contact .co-mail-aside h3 {
+    font-size:clamp(30px,8vw,44px);
+    line-height:1.1;
+    margin:14px 0 18px;
+  }
+  .co-site .co-contact .co-mail-aside>p {
+    font-size:16px;
+    line-height:1.55;
+    max-width:none;
+  }
+  .co-site .co-contact .co-mail-aside .co-mail-disclaimer {
+    margin:18px 0 0;
+    max-width:none;
+  }
+  .co-site .co-contact .co-mail-form {
+    padding:clamp(18px,5vw,26px);
+    border-radius:18px;
+    overflow:visible;
+  }
+  .co-site .co-contact .co-mail-form .co-form-grid {
+    display:grid;
+    grid-template-columns:minmax(0,1fr);
+    gap:16px;
+  }
+  .co-site .co-contact .co-mail-form input,
+  .co-site .co-contact .co-mail-form textarea {
+    box-sizing:border-box;
+    max-width:100%;
+    font-size:16px;
+  }
+  .co-site .co-contact .co-mail-submit { min-height:52px; }
+}
+
+/* Theme control: an intentional footer utility, not a viewport overlay. */
+.co-site .co-footer > .loto-theme-toggle,
+.co-case-page footer > .loto-theme-toggle,
+.lottolov-page footer > .loto-theme-toggle,
+.resume-shell .resume-foot > .loto-theme-toggle,
+main > footer > .loto-theme-toggle,
+body > footer > .loto-theme-toggle {
+  position:static;
+  inset:auto;
+  z-index:auto;
+  flex:0 0 auto;
+  align-self:center;
+  width:max-content;
+  max-width:100%;
+  min-height:44px;
+  margin:0;
+  padding:10px 12px 10px 16px;
+  box-shadow:none;
+}
+.co-site .co-footer > .loto-theme-toggle:focus-visible,
+.co-case-page footer > .loto-theme-toggle:focus-visible,
+.lottolov-page footer > .loto-theme-toggle:focus-visible {
+  outline-offset:4px;
+}
+@media(max-width:767px) {
+  .co-site .co-footer > .loto-theme-toggle {
+    justify-self:start;
+    align-self:start;
+    min-height:44px;
+    margin-top:8px;
+  }
+}

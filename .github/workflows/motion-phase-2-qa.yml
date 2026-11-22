@@ -1,0 +1,35 @@
+name: Motion Phase 2 browser QA
+on:
+  pull_request:
+    paths:
+      - 'app/**'
+      - 'components/**'
+      - 'tests/**'
+      - 'playwright.config.mjs'
+      - '.github/workflows/motion-phase-2-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  browser-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      # This repository does not commit a package-lock.json.
+      - run: npm install --no-save @playwright/test
+      - run: npx playwright install --with-deps chromium
+      - run: npx playwright test --config=playwright.config.mjs
+        env:
+          CI: 'true'
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: motion-phase-2-traces
+          path: test-results/
+          retention-days: 7
