@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import "../globals.css";
 import AnalyticsPreferenceReset from "../../components/analytics-preference-reset";
 
 export const metadata: Metadata = {
@@ -17,8 +17,8 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
   return <main id="main-content" tabIndex={-1} className="co-site" style={{minHeight:"100vh"}}>
     <header className="nav co-nav">
-      <Link href="/" className="brand">shilpi<span>.</span>mishra</Link>
-      <nav aria-label="Privacy page navigation"><Link href="/" className="co-nav-item">Back to portfolio</Link></nav>
+      <a href="/" className="brand">shilpi<span>.</span>mishra</a>
+      <nav aria-label="Privacy page navigation"><a href="/" className="co-nav-item">Back to portfolio</a></nav>
     </header>
     <article style={{maxWidth:780,margin:"0 auto",padding:"clamp(48px,8vw,110px) 24px",lineHeight:1.75}}>
       <p className="co-kicker">SITE INFORMATION / PRIVACY</p>
@@ -38,7 +38,7 @@ export default function PrivacyPage() {
       <p>You may ask about personal information you have sent by email or request its correction or deletion, subject to applicable legal or operational retention requirements. Contact <a href="mailto:smshilpi1@gmail.com?subject=Lotolipi%20privacy%20request">smshilpi1@gmail.com</a> with the subject “Lotolipi privacy request”. Please do not include sensitive identification documents in your initial message. Requests involving third-party shops may need to be directed to those providers.</p>
       <h2>Updates</h2>
       <p>This notice may change when site features, analytics or data practices change. Please check the update date above.</p>
-      <p style={{marginTop:40}}><Link href="/">← Return to portfolio</Link></p>
+      <p style={{marginTop:40}}><a href="/">← Return to portfolio</a></p>
     </article>
   </main>;
 }
