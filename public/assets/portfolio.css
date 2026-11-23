@@ -294,3 +294,16 @@ nav [aria-current=page]{text-decoration:underline;text-underline-offset:.3em}@me
 .privacy-page h2{border-top:1px solid #bcbbb6;margin:2rem 0 .65rem;padding-top:1.3rem;font-size:clamp(1.5rem,3vw,2.2rem)}
 .privacy-page p{line-height:1.65;margin-bottom:.8rem;overflow-wrap:anywhere}
 .privacy-foot{padding:1.2rem 0}
+
+@font-face{font-family:'Bricolage Grotesque';src:url('/fonts/bricolage.woff') format('woff');font-weight:200 800;font-display:swap}
+@font-face{font-family:Fraunces;src:url('/fonts/fraunces.woff') format('woff');font-weight:100 900;font-style:italic;font-display:swap}
+:root{font-family:'Bricolage Grotesque',system-ui,sans-serif}
+h1,h2,h3,.wordmark{font-family:inherit;font-weight:650;letter-spacing:-.047em}
+.hero em,.route-hero h1 em,.privacy-page h1 em,h2 em{font-family:Fraunces,Georgia,serif;font-style:italic;font-weight:450;letter-spacing:-.045em}
+button,input,select,textarea{font-family:inherit}
+.handoff-game h3,.print-puzzle h3{font-weight:720;letter-spacing:-.04em}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){
+  .print-item figcaption,.back-top .icon{transition:transform .22s var(--ease)}
+  .print-item:hover figcaption,.print-item:focus-visible figcaption{transform:translateX(.2rem)}
+  .back-top:hover .icon{transform:translateY(-.22rem)}
+}
