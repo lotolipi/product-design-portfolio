@@ -271,3 +271,26 @@ nav [aria-current=page]{text-decoration:underline;text-underline-offset:.3em}@me
 .footer{background:#f1dbd2 linear-gradient(90deg,rgba(250,242,235,.96) 0%,rgba(250,242,235,.91) 40%,rgba(250,242,235,.16) 85%);background-image:linear-gradient(90deg,rgba(250,242,235,.96) 0%,rgba(250,242,235,.91) 40%,rgba(250,242,235,.10) 85%),url('/assets/sunset.webp');background-size:cover;background-position:center 51%;color:#231d26}
 .footer-end .back-top{background:#f9f3ec;color:#231d26;border-radius:.3rem;padding:0 .7rem}
 @media(max-width:47rem){.hero.wrap{min-height:39rem;padding-top:3.4rem;padding-bottom:10rem}.hero .current-art{background-position:57% bottom}.hero::before{background:linear-gradient(to bottom,#f7f3efde 0%,#f7f3efdc 48%,#f7f3efa8 67%,transparent 85%)}.studio-page .route-hero{background-image:linear-gradient(90deg,#f5f6ebb8,#f5f6ebea 35%,#f5f6ebea 65%,#f5f6ebb8),url('/assets/floral.webp')}.footer{background-image:linear-gradient(90deg,#faf2ebed,#faf2ebd9 72%,#faf2eb70),url('/assets/sunset.webp')}}
+
+/* Keep the story, playable example and evidence on one editorial grid. */
+.work .walkthrough,.work .handoff-game,.work>.wrap>.notes{width:100%;max-width:68rem;margin-inline:auto}
+.work .walkthrough-copy{width:100%}
+.work .walkthrough h3,.work .walkthrough-copy p{margin-inline:auto}
+.work .walkthrough h3{max-width:19ch;text-wrap:balance}
+.work .walkthrough-copy p{max-width:49ch}
+.handoff-game p,.case-notes p,.walkthrough-copy p{font-size:clamp(1rem,1.25vw,1.15rem);line-height:1.6}
+.case-notes .notes figure{display:grid;gap:1rem}
+.case-notes .notes figure p{margin:0}
+.studio-page .studio-poster{width:100%;max-width:68rem;margin:clamp(1.5rem,4vw,4rem) auto}
+.studio-poster img{max-height:70vh;object-fit:contain}
+.shop-note{margin-top:1.2rem}
+.footer-end{flex-wrap:wrap;justify-content:flex-start;gap:.6rem 1.3rem}
+.footer-end .back-top{margin-left:auto}
+.footer-end>span,.footer-end>a{font-size:1rem;font-weight:600}
+.privacy-page{background:#efeee9;color:#222224;padding:clamp(3rem,7vw,7rem) var(--gutter)}
+.privacy-page article{max-width:68ch;margin:auto}
+.privacy-page h1{font-size:clamp(3rem,7vw,6.5rem);margin:.7rem 0 2rem;line-height:.97}
+.privacy-page h1 em{font-family:Georgia,serif;font-weight:400}
+.privacy-page h2{border-top:1px solid #bcbbb6;margin:2rem 0 .65rem;padding-top:1.3rem;font-size:clamp(1.5rem,3vw,2.2rem)}
+.privacy-page p{line-height:1.65;margin-bottom:.8rem;overflow-wrap:anywhere}
+.privacy-foot{padding:1.2rem 0}
