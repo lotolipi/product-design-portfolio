@@ -17,7 +17,7 @@ while(candidates.length&&route.length<4){candidates.sort((a,b)=>Number(seen.has(
 $('feedback').textContent='';render()}
 function shorter(){let list=route.slice();while(list.length>1&&cost(list,true)>minutes)list.pop();return list}
 function render(){let list=extra?shorter():route,prev=null;
-$('summary').textContent=list.length+' stops · '+cost(list,extra)+' of '+minutes+' minutes, including walking.';
+$('summary').textContent=list.length+' stops · '+cost(list,extra)+' of '+minutes+' minutes, including walking.'+($('access').checked?' Step-free route.':'');
 $('stops').innerHTML=list.map((e,i)=>{let w=walk(prev,e[2]);prev=e[2];return '<li><strong>'+e[0]+'</strong> · '+rooms[e[2]]+'<br>'+topics[e[1]]+' · '+w+' min walk · '+(e[3]+(extra&&i===0?10:0))+' min viewing</li>'}).join('');
 const svg=$('map').querySelector('svg');if(svg){svg.querySelector('g.route')?.remove();let points=['35,255'];let marks='';list.forEach((e,i)=>{let x=[115,300,485][e[2]],y=106+i*23;points.push(x+',255',x+','+y,x+',255');marks+='<circle cx="'+x+'" cy="'+y+'" r="10" fill="#783523"/><text x="'+x+'" y="'+(y+4)+'" text-anchor="middle" font-size="12" fill="white">'+(i+1)+'</text>'});svg.insertAdjacentHTML('beforeend','<g class="route"><polyline points="'+points.join(' ')+'" fill="none" stroke="#783523" stroke-dasharray="4 4"/>'+marks+'</g>')}
 let next=shorter(),removed=route.slice(next.length);$('change').innerHTML=route.length&&cost(next,true)<=minutes?'<p>'+ (extra?'You extended your first stop.':'Stay 10 minutes longer at '+route[0][0]+'? '+(removed.length?'This drops '+removed.map(e=>e[0]).join(', ')+'.':'Your remaining stops still fit.'))+'</p><button id="detour">'+(extra?'Restore original route':'Take the extra 10 minutes')+'</button>':'';if($('detour'))$('detour').onclick=()=>{extra=!extra;render();$('feedback').textContent=extra?'Route updated.':'Original route restored.';$('detour').focus()}}
@@ -44,7 +44,22 @@ function showGallery(room){
 $('gallery-tabs').onclick=e=>{let b=e.target.closest('button');if(b){showGallery(+b.dataset.gallery);$('gallery-tabs').children[+b.dataset.gallery].focus()}};
 $('objects').onclick=e=>{let b=e.target.closest('button');if(!b)return;activeObject=exhibits[+b.dataset.exhibit];let item=activeObject;
  $('object-text').innerHTML='<small>'+rooms[item[2]]+' · '+item[3]+' minutes</small><h3 id="object-title">'+item[0]+'</h3><p>'+clues[+b.dataset.exhibit]+'</p><p>'+ (item[4]?'Step-free viewing':'Raised display with steps')+'</p>';
- $('start-here').disabled=$('access').checked&&!item[4];detail.showModal()};
+ syncAccess();detail.showModal()};
 $('close-object').onclick=()=>detail.close();
 $('start-here').onclick=()=>{anchor=activeObject;let inputs=[...document.querySelectorAll('#topics input')];if(!inputs[anchor[1]].checked){if(selected().length===2)inputs[selected()[1]].checked=false;inputs[anchor[1]].checked=true}limits();build();detail.close();$('plan').scrollIntoView();$('plan').tabIndex=-1;$('plan').focus({preventScroll:true})};
+function syncAccess(){
+ const enabled=$('access').checked;
+ $('object-access').checked=enabled;
+ const blocked=enabled && activeObject && !activeObject[4];
+ $('start-here').disabled=Boolean(blocked);
+ $('access-hint').textContent=blocked?'This exhibit has steps. Close this view to choose a step-free exhibit.':enabled?'Every stop on your route will be step-free.':'';
+}
+function changeAccess(enabled){
+ $('access').checked=enabled;
+ if(enabled && anchor && !anchor[4])anchor=null;
+ syncAccess();
+ build();
+}
+$('access').onchange=e=>changeAccess(e.target.checked);
+$('object-access').onchange=e=>changeAccess(e.target.checked);
 showGallery(0);
