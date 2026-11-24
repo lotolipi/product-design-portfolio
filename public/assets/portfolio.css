@@ -307,3 +307,5 @@ button,input,select,textarea{font-family:inherit}
   .print-item:hover figcaption,.print-item:focus-visible figcaption{transform:translateX(.2rem)}
   .back-top:hover .icon{transform:translateY(-.22rem)}
 }
+
+.social-identities{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin:2rem 0;padding:1rem;background:#faf2eb;color:#231d26;border-radius:.5rem}.social-identities a{display:flex;flex-direction:column;gap:.35rem;color:#231d26;text-decoration:none;padding:.8rem;border-top:1px solid #958a87;min-width:0;overflow-wrap:anywhere}.social-identities a strong{font-size:clamp(1.1rem,2vw,1.5rem);text-decoration:underline;text-underline-offset:.2em}.social-identities a small{font-size:.9rem;line-height:1.4}.social-identities a:focus-visible{outline:2px solid #231d26;outline-offset:3px}.social-context{padding-block:1.5rem}@media(max-width:47rem){.social-identities{grid-template-columns:1fr}}
