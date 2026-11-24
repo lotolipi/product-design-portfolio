@@ -1,0 +1,5 @@
+dataset_id,category,previous_inr,current_inr
+DS-003,Mainstream,100000000,103000000
+DS-003,Premium,50000000,56000000
+DS-003,Functional,40000000,47200000
+DS-003,Traditional,30000000,28800000

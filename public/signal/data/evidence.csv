@@ -1,0 +1,6 @@
+id,decision_id,dataset_id,claim,limitation,classification
+E01,D001,DS-001,Concept interest 51.2%,Stated intent; not sales,synthetic
+E02,D001,DS-002,24% positive at INR 99,Separate sample; repeated price tasks,synthetic
+E03,D001,DS-003,Premium category growth 12%,Category not product,synthetic
+E04,D001,DS-005,Repeat purchase uncertain,Authored scenario; no respondents,synthetic
+E05,D001,DS-004,Metro demand differs,Marginal aggregates only,synthetic

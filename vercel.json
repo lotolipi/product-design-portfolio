@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/signal",
+      "destination": "/signal/index.html"
+    }
+  ]
+}
