@@ -1,0 +1,26 @@
+name: Verify Field Guide access
+on:
+  push:
+    branches: [verify-field-guide-access]
+    paths: ['qa/field-guide.py','.github/workflows/field-guide-access.yml']
+permissions:
+  contents: write
+jobs:
+  walkthrough:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install playwright
+      - run: |
+          for i in {1..45}; do
+            if curl -fsS https://www.lotolipi.space/field-guide/index.html | grep -q object-access; then break; fi
+            sleep 5
+          done
+          set -o pipefail
+          python qa/field-guide.py 2>&1 | tee qa/results.txt
+      - if: always()
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add qa/results.txt && git commit -m 'Record live walkthrough result' && git push

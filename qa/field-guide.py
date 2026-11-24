@@ -1,0 +1,28 @@
+from playwright.sync_api import sync_playwright, expect
+with sync_playwright() as pw:
+    browser=pw.chromium.launch(executable_path="/usr/bin/google-chrome")
+    for width in (360,1440):
+        page=browser.new_page(viewport={"width":width,"height":900})
+        page.goto("https://www.lotolipi.space/field-guide/index.html")
+        page.get_by_role("button",name="Impression",exact=True).click()
+        page.get_by_role("button",name="Block-print demonstration",exact=False).click()
+        page.locator("#object-access").check()
+        page.locator("#start-here").click()
+        expect(page.locator("#access")).to_be_checked()
+        expect(page.locator("#stops li").first).to_contain_text("Block-print demonstration")
+        for _ in range(2):
+            page.locator("#detour").click()
+            expect(page.locator("#summary")).to_contain_text("Step-free route")
+            expect(page.locator("#stops")).not_to_contain_text("Raised loom platform")
+        page.get_by_role("button",name="Cloth",exact=True).click()
+        page.get_by_role("button",name="Raised loom platform",exact=False).click()
+        expect(page.locator("#object-access")).to_be_checked()
+        expect(page.locator("#start-here")).to_be_disabled()
+        expect(page.locator("#access-hint")).to_contain_text("steps")
+        page.locator("#close-object").click()
+        page.locator("#access").uncheck()
+        page.get_by_role("button",name="Raised loom platform",exact=False).click()
+        expect(page.locator("#object-access")).not_to_be_checked()
+        expect(page.locator("#start-here")).to_be_enabled()
+        print(f"PASS live fictional walkthrough at {width}px")
+        page.close()
