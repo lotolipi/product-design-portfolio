@@ -1,3 +1,4 @@
+import DataExperience from "../DataExperience";
 import type { Metadata } from "next";
 import markup from "./portfolio.html.json";
 import ExperienceChallenge from "../ExperienceChallenge";
@@ -17,5 +18,5 @@ export const metadata: Metadata = {
 
 export default function PortfolioPage() {
   const boundary = markup.indexOf("</header>", markup.indexOf('<header class="topbar"')) + "</header>".length;
-  return <><link rel="stylesheet" href="/assets/portfolio.css" /><link rel="stylesheet" href="/assets/experience-layer.css" /><div dangerouslySetInnerHTML={{ __html: markup.slice(0,boundary) }} /><ExperienceChallenge kind="signal" /><div id="case-study-reading" dangerouslySetInnerHTML={{ __html: markup.slice(boundary) }} /></>;
+  return <><link rel="stylesheet" href="/assets/portfolio.css" /><link rel="stylesheet" href="/assets/experience-layer.css" /><div dangerouslySetInnerHTML={{ __html: markup.slice(0,boundary) }} /><ExperienceChallenge kind="signal" /><link rel="stylesheet" href="/assets/lvis-data.css" /><DataExperience kind="signal" /><div id="case-study-reading" dangerouslySetInnerHTML={{ __html: markup.slice(boundary) }} /></>;
 }
