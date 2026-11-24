@@ -7,6 +7,7 @@ for (const route of ['/', '/work/workatlas', '/resume', '/lottolov']) {
     await page.goto(route);
     await expect(page.getByRole('navigation',{name:'Main navigation'})).toBeVisible();
     await expect(page.locator('main h1')).toBeVisible();
+    await expect(page.getByRole('button',{name:/switch to (dark|bright|light) mode/i})).toHaveCount(0);
     await expect(page.locator('footer a[href^="mailto:"]')).toBeVisible();
   });
 }
