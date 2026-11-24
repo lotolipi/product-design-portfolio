@@ -1,0 +1,47 @@
+@font-face {
+  font-family: "Newsreader";
+  src: url("fonts/newsreader.ttf") format("truetype");
+  font-weight: 200 800;
+  font-display: swap;
+}
+@font-face {
+  font-family: "DM Sans";
+  src: url("fonts/dm-sans.woff") format("woff");
+  font-weight: 100 1000;
+  font-display: swap;
+}
+:root {
+  --display: "Newsreader", Georgia, serif;
+  --body: "DM Sans", Arial, sans-serif;
+  --paper: #faf6f0;
+  --ink: #281e28;
+  --accent: #8a3043;
+  --secondary: #60515c;
+  --track: #d6c5ce;
+  --muted: #836b79;
+  --line: #9e8c97;
+  --wash: #efdbd6;
+  --glow: #f3eae6;
+  --radius: 12px;
+  --peach: #ffc7a6;
+}
+body.dark, .hero .plate, .lvis-metric {
+  --paper: #2d1c30;
+  --ink: #fff5ed;
+  --accent: var(--peach);
+  --secondary: #eddae7;
+  --track: #70546a;
+  --muted: #bfa7ba;
+  --line: #a58a9f;
+  --wash: #593449;
+  --glow: #342134;
+}
+body.dark {color-scheme: dark}
+body {font: 16px/1.55 var(--body); color: var(--ink); background: var(--paper)}
+h1,h2,h3,header strong {font-family:var(--display); font-weight:480; line-height:1.04; letter-spacing:-.028em}
+h1 {text-wrap:balance}
+small,figcaption {color:var(--secondary)}
+small {font:550 .8rem/1.55 var(--body);letter-spacing:.018em}
+button,input,select,textarea {font-family:var(--body);accent-color:var(--accent)}
+.lvis-number, output strong {font:480 clamp(52px,6.2vw,94px)/1 var(--body);letter-spacing:-.042em;font-variant-numeric:tabular-nums;color:var(--accent)}
+.plate,.lvis-metric {color:var(--ink);background:radial-gradient(ellipse at 100% 0,var(--wash),transparent 68%),var(--glow);border-radius:var(--radius)}
