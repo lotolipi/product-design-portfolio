@@ -1,17 +1,24 @@
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Risiti | Lotolipi",
-  description: "A personal project studio for choosing a next step and understanding your returns.",
-  alternates: { canonical: "/risiti" },
-};
-
-export default function RisitiPage() {
-  return <main style={{minHeight:"100vh",background:"linear-gradient(135deg,#faf8f5,#e6d9f3)",color:"#30233d",padding:"clamp(28px,8vw,110px)",fontFamily:"system-ui"}}>
-    <a href="/" style={{color:"inherit"}}>Lotolipi / Portfolio</a>
-    <h1 style={{fontFamily:"Georgia, serif",fontWeight:400,fontSize:"clamp(52px,9vw,112px)",letterSpacing:"-.06em",lineHeight:1}}>Risiti.</h1>
-    <p style={{maxWidth:"44ch",fontSize:"1.25rem"}}>Find unfinished work in your AI chat. Choose one task, mark what you finish, and collect your week in a progress card you can share.</p>
-    <a href="https://lotolipi-second-nature.lotolipi.chatgpt.site/studio" style={{display:"inline-block",padding:"14px 22px",background:"#482e66",color:"white",borderRadius:30}}>Start my Risiti</a>
-    <p style={{maxWidth:"55ch"}}>Sign in with ChatGPT to keep a private record. Choose which accomplishment appears on your weekly card. The studio records your account identifier and first and latest access.</p>
-  </main>;
+"use client";
+import { useEffect, useState } from "react";
+type Task = {id:string; name:string; done:boolean; minutes:number; completedAt?:string};
+const providers = [{name:"ChatGPT",url:"https://chatgpt.com/"},{name:"Claude",url:"https://claude.ai/"},{name:"Gemini",url:"https://gemini.google.com/"},{name:"Copilot",url:"https://copilot.microsoft.com/"}];
+const prompt = "Review only the project context and conversations you can actually access. Identify up to five tasks I already started or agreed to that remain unfinished. Exclude completed and speculative work. Return one task per line in this exact format: Task name | Last known progress | Next action achievable in 15 minutes. Mark uncertain status explicitly. Do not include sensitive information. If none, return NO OPEN TASKS.";
+export default function RisitiPage(){
+ const [tasks,setTasks]=useState<Task[]>([]); const [ready,setReady]=useState(false); const [provider,setProvider]=useState("ChatGPT"); const [raw,setRaw]=useState(""); const [notice,setNotice]=useState(""); const [minutes,setMinutes]=useState(15);
+ useEffect(()=>{try{const saved=localStorage.getItem("risiti-v1");if(saved){const parsed=JSON.parse(saved);if(Array.isArray(parsed))setTasks(parsed);}}catch{setNotice("Could not read your saved receipts.");}setReady(true);},[]);
+ useEffect(()=>{if(ready){try{localStorage.setItem("risiti-v1",JSON.stringify(tasks));}catch{setNotice("Device storage unavailable.");}}},[tasks,ready]);
+ const weekStart=new Date();weekStart.setDate(weekStart.getDate()-6);weekStart.setHours(0,0,0,0);
+ const done=tasks.filter(t=>t.done&&t.completedAt&&new Date(t.completedAt)>=weekStart);
+ const total=done.reduce((s,t)=>s+t.minutes,0);
+ const receipt="RISITI / LAST 7 DAYS\n"+done.length+" tasks completed · "+total+" minutes invested\nMade with Risiti";
+ async function copy(value:string){try{await navigator.clipboard.writeText(value);setNotice("Copied.");}catch{setNotice("Copy unavailable. Select the text manually.");}}
+ function importTasks(){const rows=raw.split(/\n/).map(s=>s.trim().replace(/^\d+[.)]\s*|^[-*]\s*/,"")).filter(s=>s.includes("|"));if(!rows.length){setNotice("Paste task lines with | separators from your AI.");return;}setTasks(old=>[...old,...rows.slice(0,5).filter(name=>!old.some(t=>t.name===name)).map(name=>({id:crypto.randomUUID(),name,done:false,minutes:0}))]);setRaw("");setNotice("Tasks imported.");}
+ const button={border:0,borderRadius:24,padding:"12px 18px",background:"#38235a",color:"white",cursor:"pointer",fontWeight:600} as const;
+ const panel={background:"white",border:"1px solid #ded5e8",borderRadius:24,padding:"clamp(18px,4vw,36px)",marginBottom:20} as const;
+ return <main style={{minHeight:"100vh",background:"#f6f2fa",color:"#30233d",padding:"clamp(20px,6vw,80px)",fontFamily:"system-ui"}}><div style={{maxWidth:920,margin:"auto"}}>
+ <a href="/" style={{color:"inherit"}}>Lotolipi / Portfolio</a><h1 style={{fontFamily:"Georgia,serif",fontWeight:400,fontSize:"clamp(64px,12vw,126px)",letterSpacing:"-.07em",margin:"24px 0 0"}}>Risiti.</h1><p style={{fontSize:22,maxWidth:560}}>Proof that your time went somewhere.</p><p>Private on this browser. No account, automatic AI access or cloud sync in this version.</p>
+ <section style={panel}><h2>01 / Find unfinished work</h2><div style={{display:"flex",flexWrap:"wrap",gap:8}}>{providers.map(p=><button key={p.name} aria-pressed={provider===p.name} onClick={()=>setProvider(p.name)} style={{...button,background:provider===p.name?"#38235a":"#ede6f4",color:provider===p.name?"white":"#30233d"}}>{p.name}</button>)}</div><details style={{margin:"16px 0"}}><summary>View retrieval prompt</summary><p>{prompt}</p></details><div style={{display:"flex",gap:10,flexWrap:"wrap"}}><button style={button} onClick={()=>copy(prompt)}>Copy prompt</button><a style={button} href={providers.find(p=>p.name===provider)?.url} target="_blank" rel="noreferrer">Open {provider}</a></div><label style={{display:"block",marginTop:20}} htmlFor="ai-response">Paste only the task list returned by your AI</label><textarea id="ai-response" value={raw} onChange={e=>setRaw(e.target.value)} rows={5} style={{width:"100%",boxSizing:"border-box",margin:"8px 0",padding:12,borderRadius:12,border:"1px solid #a89bb6",color:"#30233d",background:"white"}}/><button style={button} onClick={importTasks}>Import tasks</button></section>
+ <section style={panel}><h2>02 / Make progress</h2><label htmlFor="duration">Actual minutes spent </label><select id="duration" value={minutes} onChange={e=>setMinutes(Number(e.target.value))}>{[5,10,15,25,30,45,60,90].map(n=><option key={n} value={n}>{n} min</option>)}</select>{tasks.length===0&&<p>Import your AI task list to begin.</p>}{tasks.map(t=><article key={t.id} style={{borderTop:"1px solid #ded5e8",padding:"16px 0"}}><strong>{t.name.split("|")[0]}</strong><p style={{fontSize:14}}>{t.name.split("|").slice(1).join(" · ")}</p><button style={button} onClick={()=>setTasks(old=>old.map(x=>x.id===t.id?{...x,done:!x.done,minutes:x.done?0:minutes,completedAt:x.done?undefined:new Date().toISOString()}:x))}>{t.done?"Undo completion":"Mark complete"}</button> <button style={{...button,background:"#ede6f4",color:"#30233d"}} onClick={()=>setTasks(old=>old.filter(x=>x.id!==t.id))}>Remove</button></article>)}</section>
+ <section style={panel}><h2>03 / Your seven-day receipt</h2><div style={{display:"flex",gap:32,flexWrap:"wrap"}}><div><div style={{fontSize:64,lineHeight:1}}>{done.length}</div>Tasks completed</div><div><div style={{fontSize:64,lineHeight:1}}>{total}</div>Minutes invested</div></div><div style={{margin:"24px 0",height:12,background:"#eee7f5",borderRadius:20,overflow:"hidden"}} role="progressbar" aria-label="All imported tasks completed" aria-valuenow={tasks.length?Math.round(tasks.filter(t=>t.done).length/tasks.length*100):0}><div style={{height:"100%",background:"#6944ba",width:(tasks.length?tasks.filter(t=>t.done).length/tasks.length*100:0)+"%"}}/></div><pre style={{whiteSpace:"pre-wrap",fontFamily:"inherit"}}>{receipt}</pre><button style={button} onClick={()=>copy(receipt)}>Copy shareable receipt</button></section><p role="status" aria-live="polite">{notice}</p><button style={{...button,background:"#ede6f4",color:"#30233d"}} onClick={()=>{if(window.confirm("Delete all Risiti tasks stored on this device?"))setTasks([]);}}>Clear device record</button>
+ </div></main>;
 }
