@@ -1,2 +1,2 @@
 import { permanentRedirect } from "next/navigation";
-export default function PreviousStudioPage() { permanentRedirect("/workprint"); }
+export default function PreviousStudioPage() { permanentRedirect("/risiti"); }
