@@ -168,7 +168,7 @@ function ReceiptStudio({headline,count,minutes,caption}:{headline:string;count:n
  glow(40,h*.11,850,t.a);glow(1050,h*.91,760,t.b);glow(1010,0,420,t.b);
  ctx.save();ctx.globalAlpha=.3;ctx.beginPath();ctx.moveTo(0,h*.86);ctx.bezierCurveTo(460,h*.67,650,h*.98,1080,h*.70);ctx.lineTo(1080,h);ctx.lineTo(0,h);ctx.closePath();const g=ctx.createLinearGradient(0,h*.8,1080,h);g.addColorStop(0,t.a);g.addColorStop(1,t.base);ctx.fillStyle=g;ctx.fill();ctx.restore();
  const top=h===1920?180:76;const margin=80;
- ctx.fillStyle="#FEFFFC";ctx.font='700 64px "DM Sans", Arial, sans-serif';ctx.fillText("lotki",margin,top+56);ctx.fillStyle="#ff6059";ctx.fillText(".",margin+ctx.measureText("lotki").width,top+56);
+ ctx.fillStyle="#FEFFFC";ctx.font='700 64px "DM Sans", Arial, sans-serif';ctx.fillText("lotki",margin,top+56);
  ctx.font='500 28px "DM Sans", Arial, sans-serif';ctx.fillText("INTELLIGENCE RECEIPT / LAST 7 DAYS",margin,top+132);
  const titleY=top+205;const metricY=h===1920?1120:h===1350?755:605;const available=metricY-titleY-45;
  function wrap(text:string,size:number){if(!ctx)return [];ctx.font='italic '+size+'px "Instrument Serif", Georgia, serif';const lines:string[]=[];let line="";for(const word of text.split(/\s+/)){if(ctx.measureText(word).width>920){for(const char of Array.from(word)){if(ctx.measureText(line+char).width>920&&line){lines.push(line);line="";}line+=char;}continue;}const trial=line?line+" "+word:word;if(ctx.measureText(trial).width>920&&line){lines.push(line);line=word;}else line=trial;}if(line)lines.push(line);return lines;}
