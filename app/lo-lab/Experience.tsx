@@ -1,0 +1,12 @@
+"use client";
+import {useEffect, useState} from "react";
+import Studio from "./Studio";
+const groups=[["World",76],["High-income countries",93],["Low-income countries",32],["Asia-Pacific",80],["Arab States",74]] as const;
+export default function LoLab(){
+ const [region,setRegion]=useState(0);
+ useEffect(()=>{
+   if(window.location.hash==="#second-nature") window.location.replace("/second-nature");
+ },[]);
+ const value=groups[region][1];
+ return <><link rel="stylesheet" href="/assets/portfolio.css"/><link rel="stylesheet" href="/assets/visual-lab.css"/><header className="topbar"><div className="wrap"><a className="wordmark" href="/">lotolipi.</a><nav aria-label="Main navigation"><a href="/#case-studies">Case studies</a><a href="/lottolov">Lottolov</a></nav></div></header><main id="main-content" tabIndex={-1} className="vl wrap"><a href="/">← Portfolio</a><h1>Lo <em>Lab.</em></h1><p>Where numbers become art. A free data design playground.</p><Studio/><section className="vl-panel"><p>Global connectivity · 2026 estimates</p><h2>Who is online?</h2><label>Population grouping <select value={region} onChange={e=>setRegion(Number(e.target.value))}>{groups.map(([name],i)=><option key={name} value={i}>{name}</option>)}</select></label><div className="vl-pair"><div><strong className="vl-number">{value}%</strong><p aria-live="polite">{groups[region][0]} · online; {100-value}% offline</p></div><div className="vl-matrix" aria-hidden="true">{Array.from({length:100},(_,i)=><span key={i} className={i<value?"on":""}/>)}</div></div><p>Each square represents one percentage point. Groupings overlap; they are not additive. Internet use does not measure connection quality or individual product needs.</p><details><summary>Source and data table</summary><table><thead><tr><th>Grouping</th><th>Online (%)</th></tr></thead><tbody>{groups.map(([name,v])=><tr key={name}><td>{name}</td><td>{v}</td></tr>)}</tbody></table><p>International Telecommunication Union, Facts and Figures 2026. Retrieved 25 November 2026. <a href="https://www.itu.int/itu-d/reports/statistics/2026/10/13/ff26-internet-use/">Read source</a>. Estimates may be revised.</p></details><p>Design hypothesis: offer lightweight, resilient journeys rather than assuming uninterrupted connectivity.</p></section></main><footer className="footer"><div className="wrap"><a href="https://www.instagram.com/lotologique/">More product logic · @lotologique</a><p>© 2026 Shilpi Mishra · <a href="/privacy">Privacy</a></p></div></footer></>;
+}
