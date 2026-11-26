@@ -8,7 +8,7 @@ export function GET() {
  let y=800, stream="";
  const pages:string[]=[];
  function line(s:string,size=10,bold=false){if(y<48){pages.push(stream);stream="";y=800;}stream+="BT /"+(bold?"F2":"F1")+" "+size+" Tf 44 "+y+" Td ("+esc(s)+") Tj ET\n";y-=size+4;}
- function para(s:string,size=10,bold=false){let l="";for(const w of ascii(s).split(/\s+/)){if((l+" "+w).length>Math.floor(1000/size)){line(l,size,bold);l=w;}else l+=(l?" ":"")+w;}if(l)line(l,size,bold);y-=4;}
+ function para(s:string,size=10,bold=false){let l="";for(const w of ascii(s).split(/\s+/)){if((l+" "+w).length>Math.floor(850/size)){line(l,size,bold);l=w;}else l+=(l?" ":"")+w;}if(l)line(l,size,bold);y-=4;}
  line("Shilpi Mishra",22,true);para("Senior Product & Visual Designer | Enterprise UX | Data Intelligence",11,true);para("Bengaluru, India | smshilpi1@gmail.com");para("www.lotolipi.space | linkedin.com/in/shilpiimishra");
  for(const [tag,s] of rows){if(tag==="h1"||s.startsWith("Senior Product & Visual Designer")||!s)continue;if(tag==="h2")y-=7;para(s,tag==="h2"?13:10,tag!=="p");}
  pages.push(stream);
