@@ -1,3 +1,4 @@
+import ClosingFooter from "../ClosingFooter";
 import type { Metadata } from "next";
 
 import AnalyticsPreferenceReset from "../../components/analytics-preference-reset";
@@ -36,5 +37,5 @@ export default function PrivacyPage() {
       <h2>Updates</h2>
       <p>This notice may change when site features, analytics or data practices change. Please check the update date above.</p>
     </article></main>
-    <footer className="privacy-foot"><div className="wrap footer-end"><span>© 2026 Shilpi Mishra</span><a href="/">Back to portfolio</a></div></footer></>;
+    <ClosingFooter/></>;
 }
